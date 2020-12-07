@@ -5,7 +5,7 @@ import {LoggedLayoutComponent} from "./logged-layout.component";
 const routes: Routes = [
   {
     path: '', component: LoggedLayoutComponent, children: [
-      {path: 'login', loadChildren: () => import('./pages/choose-city/choose-city.module').then(m => m.ChooseCityModule)}
+      {path: 'cities', loadChildren: () => import('./pages/choose-city/choose-city.module').then(m => m.ChooseCityModule)}
     ]
   }
 ];
