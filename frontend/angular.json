@@ -7,7 +7,27 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "skipImport": true,
+          "skipTests": true,
+          "export": false,
+          "flat": true,
+          "inlineStyle": true
+        },
+        "@schematics/angular:directive": {
+          "export": false,
+          "skipImport": true,
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true,
+          "skipImport": true
+        },
+        "@schematics/angular:module": {
+          "commonModule": false,
+          "flat": true
         }
       },
       "root": "projects/ImWalking",
@@ -123,6 +143,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ImWalking"
+    }
+  },
+  "defaultProject": "ImWalking",
+  "cli": {
+    "analytics": "f07dcb5a-3e2c-4e45-a246-207b6f8d7832"
+  }
 }
