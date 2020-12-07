@@ -22,7 +22,7 @@
             "main": "projects/ImWalking/src/main.ts",
             "polyfills": "projects/ImWalking/src/polyfills.ts",
             "tsConfig": "projects/ImWalking/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "projects/ImWalking/src/favicon.ico",
               "projects/ImWalking/src/assets"
@@ -45,7 +45,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
