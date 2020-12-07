@@ -11,7 +11,8 @@
           "skipTests": true,
           "export": false,
           "flat": true,
-          "inlineStyle": true
+          "inlineStyle": true,
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:directive": {
           "export": false,
