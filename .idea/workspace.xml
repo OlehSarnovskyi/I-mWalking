@@ -2,9 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b833a24-f123-4a32-b2fc-ae93d8f7c681" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/chat/chat-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/chat/chat-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/chat/chat.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/chat/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/city-and-posts/search-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/city-and-posts/search-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/city-and-posts/search.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/settings/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/settings/settings-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/settings/settings-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/settings/settings-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/settings/settings.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/auth/auth-layout-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/auth/auth-layout-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/logged-layout-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/logged-layout-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/logged-layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/logged-layout.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/choose-city/choose-city-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/choose-city/choose-city-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/chat/chat-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/choose-city/choose-city-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/city-and-posts/search-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/choose-city/choose-city.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/choose-city/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/city-and-posts/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,17 +60,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/auth/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/auth/pages" />
       <recent name="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/choose-city" />
       <recent name="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/auth/pages/login" />
-      <recent name="C:\Users\Admin\Desktop\projects\I'mWalking\frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/layouts/logged/pages/choose-city" />
@@ -59,7 +86,9 @@
       <option name="presentableId" value="Default" />
       <updated>1604037490741</updated>
       <workItem from="1604037491845" duration="1072000" />
-      <workItem from="1607328964316" duration="6575000" />
+      <workItem from="1607328964316" duration="11988000" />
+      <workItem from="1607345921342" duration="1479000" />
+      <workItem from="1607347410604" duration="1007000" />
     </task>
     <task id="LOCAL-00001" summary="Commit before updating angular to 10 v.">
       <created>1607329613294</created>
@@ -89,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607335383578</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created routing on logged layout.">
+      <created>1607335654687</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607335654687</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,12 +141,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit before updating angular to 10 v." />
     <MESSAGE value="Updated to 10 version." />
     <MESSAGE value="Configured schematics." />
     <MESSAGE value="Created layouts and pages, modules, index files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created layouts and pages, modules, index files." />
+    <MESSAGE value="Created routing on logged layout." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created routing on logged layout." />
   </component>
 </project>
