@@ -1,5 +1,16 @@
 <p>logged-layout works!</p>
-<button routerLink="search">search</button>
-<button routerLink="chat">chat</button>
-<button routerLink="settings">settings</button>
 <router-outlet></router-outlet>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="search">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="chat">
+      <mat-icon>email</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="settings">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
