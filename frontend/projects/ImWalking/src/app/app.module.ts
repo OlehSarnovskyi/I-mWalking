@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
+import {LanguageTranslationModule} from "@modules";
 
 const STATES = [
 
@@ -26,6 +27,7 @@ const NGXS_MODULES = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    LanguageTranslationModule,
     ...NGXS_MODULES
   ],
   bootstrap: [AppComponent]
