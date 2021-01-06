@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node backend/index.js",
     "server": "nodemon backend/index.js",
-    "frontend:ImWalking": "npm run start --prefix frontend --project ImWalking"
+    "frontend:install": "npm install --prefix frontend",
+    "frontend:ImWalking": "npm run start --prefix frontend --project ImWalking",
+    "frontend:build:ImWalking": "npm run build --prefix frontend --project ImWalking"
   },
   "author": "Oleh Sarnovskyi",
   "license": "ISC",
