@@ -19,14 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b833a24-f123-4a32-b2fc-ae93d8f7c681" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/auth.js" afterDir="false" />
+    <list default="true" id="5b833a24-f123-4a32-b2fc-ae93d8f7c681" name="Default Changelist" comment="Added auth controller/routes/model.&#10;Configured environment.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/projects/ImWalking/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +81,8 @@
       <workItem from="1607328964316" duration="11988000" />
       <workItem from="1607345921342" duration="1479000" />
       <workItem from="1607347410604" duration="1007000" />
+      <workItem from="1609831007584" duration="38000" />
+      <workItem from="1609920396951" duration="326000" />
     </task>
     <task id="LOCAL-00001" summary="Commit before updating angular to 10 v.">
       <created>1607329613294</created>
@@ -122,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607335654687</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added auth controller/routes/model.&#10;Configured environment.">
+      <created>1609789513145</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609789513145</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,25 +150,30 @@
     <MESSAGE value="Configured schematics." />
     <MESSAGE value="Created layouts and pages, modules, index files." />
     <MESSAGE value="Created routing on logged layout." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created routing on logged layout." />
+    <MESSAGE value="Added auth controller/routes/model.&#10;Configured environment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added auth controller/routes/model.&#10;Configured environment." />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1609786633163">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1609789524350">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609786633163" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1609786633163">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609789524350" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1609789524350">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609786633163" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1609786633162">
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609789524350" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1609789524350">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609786633162" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1609786633163">
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609789524350" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1609789524350">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609786633163" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609789524350" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1609789515346">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609789515346" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609786479800">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

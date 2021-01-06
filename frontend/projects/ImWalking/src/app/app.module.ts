@@ -8,6 +8,7 @@ import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {LanguageTranslationModule} from "@modules";
+import {HttpClientModule} from "@angular/common/http";
 
 const STATES = [
 
@@ -27,6 +28,7 @@ const NGXS_MODULES = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LanguageTranslationModule,
     ...NGXS_MODULES
   ],
