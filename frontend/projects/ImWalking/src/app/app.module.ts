@@ -9,13 +9,14 @@ import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {LanguageTranslationModule} from "@modules";
 import {HttpClientModule} from "@angular/common/http";
+import {environment} from "../environments/environment";
 
 const STATES = [
 
 ];
 
 const NGXS_MODULES = [
-  NgxsModule.forRoot([...STATES]),
+  NgxsModule.forRoot([...STATES], { developmentMode: !environment.production }),
   NgxsReduxDevtoolsPluginModule.forRoot(),
   NgxsFormPluginModule.forRoot(),
 ]
