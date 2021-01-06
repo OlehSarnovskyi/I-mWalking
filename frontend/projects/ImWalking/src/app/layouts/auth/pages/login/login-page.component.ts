@@ -1,4 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Store} from "@ngxs/store";
+import {Router} from "@angular/router";
+import {LoginState} from "./store";
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +10,13 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store$: Store, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  login(): void {
+    // TODO why called twice
+    console.log('login');
+    console.log('for BE ->', this.store$.selectSnapshot(LoginState.getFormValue));
   }
-
 }
