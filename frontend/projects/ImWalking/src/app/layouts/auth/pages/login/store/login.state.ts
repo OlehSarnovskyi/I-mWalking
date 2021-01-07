@@ -37,8 +37,11 @@ export class LoginState {
   login({patchState}: StateContext<Login.State>, { form }: LoginAction): Observable<Login.SuccessResponse> {
     return this.loginService.login(form)
       .pipe(
-        tap(() => {
-          patchState({logged: true})
+        tap(response => {
+          patchState({
+            token: response.token,
+            logged: true
+          })
         })
       )
   }

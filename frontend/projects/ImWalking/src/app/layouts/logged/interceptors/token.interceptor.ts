@@ -10,14 +10,13 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(private store$: Store) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let newRequest;
     if (this.store$.selectSnapshot(LoginState.loggedIn)) {
-      newRequest = req.clone({
+      req = req.clone({
         setHeaders: {
           Authorization: this.store$.selectSnapshot(LoginState.token)
         }
       })
     }
-    return next.handle(newRequest)
+    return next.handle(req)
   }
 }

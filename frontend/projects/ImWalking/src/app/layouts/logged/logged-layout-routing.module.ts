@@ -5,8 +5,8 @@ import {LoggedLayoutComponent} from "./logged-layout.component";
 const routes: Routes = [
   {
     path: '', component: LoggedLayoutComponent, children: [
-      {path:'', redirectTo: 'search', pathMatch: 'full'},
-      {path: 'search', loadChildren: () => import('./pages/city-and-posts/search.module').then(m => m.SearchModule)},
+      {path:'', redirectTo: 'posts', pathMatch: 'full'},
+      {path: 'posts', loadChildren: () => import('./pages/posts/posts.module').then(m => m.PostsModule)},
       {path: 'chat', loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatModule)},
       {path: 'settings', loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule)},
     ]

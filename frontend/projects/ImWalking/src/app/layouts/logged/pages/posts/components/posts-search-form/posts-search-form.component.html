@@ -1,0 +1,15 @@
+<form [formGroup]="form" ngxsForm="PostsState.form" (ngSubmit)="submitted.emit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <mat-select formControlName="city">
+      <mat-option *ngFor="let city of ['Lviv', 'Kyiv']" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter description of posts</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+  <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Search</button>
+</form>
