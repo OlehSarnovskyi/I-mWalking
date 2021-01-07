@@ -10,11 +10,8 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {LanguageTranslationModule} from "@modules";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
-import { LoginState } from './layouts';
 
-const STATES = [
-  LoginState
-];
+const STATES = [];
 
 const NGXS_MODULES = [
   NgxsModule.forRoot([...STATES], { developmentMode: !environment.production }),

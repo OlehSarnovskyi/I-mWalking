@@ -1,7 +1,8 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Store} from "@ngxs/store";
+import {Select, Store} from "@ngxs/store";
 import {Router} from "@angular/router";
-import {LoginState} from "./store";
+import {LoginAction, LoginState} from "./store";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-login-page',
@@ -10,13 +11,19 @@ import {LoginState} from "./store";
 })
 export class LoginPageComponent implements OnInit {
 
+  @Select(LoginState.loggedIn) loggedIn$: Observable<boolean>
+
   constructor(private store$: Store, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loggedIn$.subscribe(loggedIn => {
+      if (loggedIn) {
+        this.router.navigateByUrl('view')
+      }
+    })
+  }
 
   login(): void {
-    // TODO why called twice
-    console.log('login');
-    console.log('for BE ->', this.store$.selectSnapshot(LoginState.getFormValue));
+    this.store$.dispatch(new LoginAction(this.store$.selectSnapshot(LoginState.formValue)))
   }
 }

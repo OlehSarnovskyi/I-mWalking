@@ -1,10 +1,12 @@
-import {ILoginState} from "./login.state.model";
+import {Login} from "../models";
 
-export const LOGIN_DEFAULTS: ILoginState = {
+export const LOGIN_DEFAULTS: Login.State = {
   form: {
     model: undefined,
     dirty: false,
     status: '',
     errors: {}
-  }
+  },
+  logged: false,
+  token: null
 };

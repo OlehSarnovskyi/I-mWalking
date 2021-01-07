@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
+  selector: 'app-register-form',
+  templateUrl: './register-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginFormComponent implements OnInit {
+export class RegisterFormComponent implements OnInit {
 
   @Output() submitted = new EventEmitter<void>()
 
@@ -22,7 +22,8 @@ export class LoginFormComponent implements OnInit {
   initForm(): void {
     this.form = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
-      password: [null, [Validators.minLength(8), Validators.required]]
+      password: [null, [Validators.minLength(8), Validators.required]],
+      name: [null, [Validators.minLength(2), Validators.required]],
     })
   }
 }

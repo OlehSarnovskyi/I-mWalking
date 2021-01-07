@@ -1,17 +1,45 @@
-import {Selector, State} from "@ngxs/store";
+import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {LOGIN_DEFAULTS} from "./login.defaults";
 import {Injectable} from "@angular/core";
-import {ILoginState} from "./login.state.model";
+import {LoginAction} from "./login.actions";
+import {Observable} from "rxjs";
+import {tap} from "rxjs/operators";
+import {LoginService} from "../services";
+import {Login} from "../models";
 
 
-@State<ILoginState>({
+@State<Login.State>({
   name: 'LoginState',
   defaults: LOGIN_DEFAULTS,
 })
 @Injectable()
 export class LoginState {
+
+  constructor(private loginService: LoginService) {}
+
   @Selector()
-  static getFormValue({ form }): ILoginState {
+  static formValue({form}: Login.State): Login.Form {
     return form.model;
+  }
+
+  @Selector()
+  static loggedIn({logged}: Login.State): boolean {
+    return logged;
+  }
+
+  @Selector()
+  static token({token}: Login.State): string {
+    return token;
+  }
+
+
+  @Action(LoginAction)
+  login({patchState}: StateContext<Login.State>, { form }: LoginAction): Observable<Login.SuccessResponse> {
+    return this.loginService.login(form)
+      .pipe(
+        tap(() => {
+          patchState({logged: true})
+        })
+      )
   }
 }
