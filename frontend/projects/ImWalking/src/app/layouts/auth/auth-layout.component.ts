@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Store} from "@ngxs/store";
 import {SetTokenAction} from "./pages/login/store";
@@ -16,8 +16,7 @@ export class AuthLayoutComponent implements OnInit {
     const token = localStorage.getItem('IWToken')
     if (token) {
       this.store$.dispatch(new SetTokenAction(token))
-      this.router.navigateByUrl('view')
+      this.router.navigate(['view'])
     }
   }
-
 }

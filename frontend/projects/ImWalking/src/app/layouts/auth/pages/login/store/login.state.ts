@@ -23,15 +23,19 @@ export class LoginState {
   }
 
   @Selector()
-  static loggedIn({logged}: Login.State): boolean {
-    return logged;
+  static token({token}: Login.State): string {
+    return token
   }
 
   @Selector()
-  static token({token}: Login.State): string {
-    return token;
+  static loggedIn({token}: Login.State): boolean {
+    return !!token
   }
 
+  @Selector()
+  static notLoggedIn({token}: Login.State): boolean {
+    return !token
+  }
 
   @Action(LoginAction)
   login({patchState}: StateContext<Login.State>, { form }: LoginAction): Observable<Login.SuccessResponse> {
@@ -39,8 +43,7 @@ export class LoginState {
       .pipe(
         tap(response => {
           patchState({
-            token: response.token,
-            logged: true
+            token: response.token
           })
         })
       )

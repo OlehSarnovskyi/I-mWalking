@@ -1,4 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Store} from "@ngxs/store";
+import {Router} from "@angular/router";
+import {SetTokenAction} from '../auth';
 
 @Component({
   selector: 'app-logged-layout',
@@ -7,9 +10,15 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class LoggedLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store$: Store, private router: Router) {}
 
   ngOnInit(): void {
+    const token = localStorage.getItem('IWToken')
+    if (token) {
+      this.store$.dispatch(new SetTokenAction(token))
+    } else {
+      this.router.navigateByUrl('')
+    }
   }
 
 }

@@ -8,9 +8,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
-import {NgxsModule} from "@ngxs/store";
-import {LoginState} from "./store";
-import {LoginService} from "./services";
 
 
 @NgModule({
@@ -19,7 +16,6 @@ import {LoginService} from "./services";
     LoginFormComponent
   ],
   imports: [
-    NgxsModule.forFeature([LoginState]),
     NgxsFormPluginModule,
     CommonModule,
     LoginRoutingModule,
@@ -27,9 +23,6 @@ import {LoginService} from "./services";
     MatInputModule,
     MatIconModule,
     MatButtonModule
-  ],
-  providers: [
-    LoginService
   ]
 })
 export class LoginModule {}

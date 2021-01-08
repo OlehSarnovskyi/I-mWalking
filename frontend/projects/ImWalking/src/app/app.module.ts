@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -10,13 +9,26 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {LanguageTranslationModule} from "@modules";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
+import {LoggedInGuard, NotLoggedInGuard} from "./guards";
+import {LoginState} from "./layouts/auth/pages/login/store";
+import {LoginService} from "./layouts/auth/pages/login/services";
 
-const STATES = [];
+const STATES = [
+  LoginState
+];
 
 const NGXS_MODULES = [
   NgxsModule.forRoot([...STATES], { developmentMode: !environment.production }),
   NgxsReduxDevtoolsPluginModule.forRoot(),
   NgxsFormPluginModule.forRoot(),
+]
+
+const SERVICES = [
+  LoginService
+]
+const GUARDS = [
+  NotLoggedInGuard,
+  LoggedInGuard
 ]
 
 @NgModule({
@@ -30,6 +42,10 @@ const NGXS_MODULES = [
     HttpClientModule,
     LanguageTranslationModule,
     ...NGXS_MODULES
+  ],
+  providers: [
+    ...SERVICES,
+    ...GUARDS
   ],
   bootstrap: [AppComponent]
 })
