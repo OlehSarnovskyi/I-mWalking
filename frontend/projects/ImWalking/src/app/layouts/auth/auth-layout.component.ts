@@ -1,4 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Router} from "@angular/router";
+import {Store} from "@ngxs/store";
+import {SetTokenAction} from "./pages/login/store";
 
 @Component({
   selector: 'app-auth-layout',
@@ -7,9 +10,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class AuthLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store$: Store, private router: Router) {}
 
   ngOnInit(): void {
+    const token = localStorage.getItem('IWToken')
+    if (token) {
+      this.store$.dispatch(new SetTokenAction(token))
+      this.router.navigateByUrl('view')
+    }
   }
 
 }

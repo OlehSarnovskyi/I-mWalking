@@ -1,7 +1,7 @@
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {LOGIN_DEFAULTS} from "./login.defaults";
 import {Injectable} from "@angular/core";
-import {LoginAction} from "./login.actions";
+import {LoginAction, SetTokenAction} from "./login.actions";
 import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {LoginService} from "../services";
@@ -44,5 +44,10 @@ export class LoginState {
           })
         })
       )
+  }
+
+  @Action(SetTokenAction)
+  setToken({patchState}: StateContext<Login.State>, { token }: SetTokenAction): void {
+    patchState({token})
   }
 }
