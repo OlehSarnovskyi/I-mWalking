@@ -6,6 +6,9 @@ import {CreatePostState} from "./store";
 import {CreatePostService} from "./services";
 import {CreatePostFormComponent} from './components';
 import {CreatePostRoutingModule} from "./create-post-routing.module";
+import {QuillModule} from "ngx-quill";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -14,9 +17,12 @@ import {CreatePostRoutingModule} from "./create-post-routing.module";
     CreatePostFormComponent,
   ],
   imports: [
+    CreatePostRoutingModule,
+    ReactiveFormsModule,
     NgxsModule.forFeature([CreatePostState]),
     NgxsFormPluginModule,
-    CreatePostRoutingModule
+    QuillModule.forRoot(),
+    MatButtonModule,
   ],
   providers: [CreatePostService]
 })

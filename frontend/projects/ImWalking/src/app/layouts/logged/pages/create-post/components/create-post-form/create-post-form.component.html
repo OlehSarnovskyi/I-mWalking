@@ -1,1 +1,4 @@
-<p>create-post-form works!</p>
+<form [formGroup]="form" ngxsForm="CreatePostState.form" (ngSubmit)="submitted.emit()">
+  <quill-editor [styles]="{'height': '200px'}" formControlName="post"></quill-editor>
+  <button type="submit" mat-flat-button color="primary">Post</button>
+</form>

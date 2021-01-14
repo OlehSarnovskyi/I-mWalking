@@ -10,8 +10,7 @@ import {LanguageTranslationModule} from "@modules";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {LoggedInGuard, NotLoggedInGuard} from "./guards";
-import {LoginState} from "./layouts/auth/pages/login/store";
-import {LoginService} from "./layouts/auth/pages/login/services";
+import {LoginService, LoginState} from "./layouts";
 
 const STATES = [
   LoginState
