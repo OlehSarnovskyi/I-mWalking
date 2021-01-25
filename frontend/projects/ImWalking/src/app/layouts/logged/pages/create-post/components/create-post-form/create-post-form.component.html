@@ -1,4 +1,12 @@
 <form [formGroup]="form" ngxsForm="CreatePostState.form" (ngSubmit)="submitted.emit()">
-  <quill-editor [styles]="{'height': '200px'}" formControlName="post"></quill-editor>
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <mat-select formControlName="city">
+      <mat-option *ngFor="let city of ['Lviv', 'Kyiv']" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <quill-editor [styles]="{'height': '200px'}" formControlName="description"></quill-editor>
   <button type="submit" mat-flat-button color="primary">Post</button>
 </form>

@@ -1,5 +1,6 @@
 export namespace CreatePost {
   export interface Form {
+    city: string
     description: string
   }
 

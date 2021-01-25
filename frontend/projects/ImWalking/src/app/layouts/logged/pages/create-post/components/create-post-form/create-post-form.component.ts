@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -20,7 +20,8 @@ export class CreatePostFormComponent implements OnInit {
 
   initForm(): void {
     this.form = this.fb.group({
-      post: [null, [Validators.minLength(8), Validators.required]]
+      city: [null, Validators.required],
+      description: [null, [Validators.minLength(8), Validators.required]]
     })
   }
 }

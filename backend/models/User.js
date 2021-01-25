@@ -18,27 +18,7 @@ const userSchema = new Schema({
     imageSrc: {
         type: String,
         default: ''
-    },
-    posts: [
-        {
-            title: {
-                type: String,
-                required: true
-            },
-            description: {
-                type: String,
-                required: true
-            },
-            date: {
-                type: Date,
-                default: Date.now
-            },
-            imageSrc: {
-                type: String,
-                default: ''
-            }
-        }
-    ]
+    }
 })
 
 module.exports = mongoose.model('user', userSchema)

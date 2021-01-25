@@ -10,14 +10,14 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    imageSrc: {
-        type: String,
-        default: ''
-    },
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    user: {
+        ref: 'user',
+        type: Schema.Types.ObjectId
+    },
 })
 
 module.exports = mongoose.model('post', postSchema)

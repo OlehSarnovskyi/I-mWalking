@@ -9,6 +9,10 @@ import {CreatePostRoutingModule} from "./create-post-routing.module";
 import {QuillModule} from "ngx-quill";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {CommonModule} from "@angular/common";
+import {MatOptionModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -18,11 +22,15 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   imports: [
     CreatePostRoutingModule,
+    CommonModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
     NgxsModule.forFeature([CreatePostState]),
     NgxsFormPluginModule,
     QuillModule.forRoot(),
-    MatButtonModule,
   ],
   providers: [CreatePostService]
 })
