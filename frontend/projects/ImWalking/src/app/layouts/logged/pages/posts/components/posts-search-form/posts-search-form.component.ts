@@ -21,7 +21,7 @@ export class PostsSearchFormComponent implements OnInit {
   initForm(): void {
     this.form = this.fb.group({
       city: [null, Validators.required],
-      description: [null, Validators.required]
+      description: ['']
     })
   }
 }
