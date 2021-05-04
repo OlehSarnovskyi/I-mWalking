@@ -32,8 +32,8 @@ export class PostsState {
   search({patchState}: StateContext<Posts.State>, { form }: SearchPostsAction): Observable<Posts.PostsList> {
     return this.postsService.search(form)
       .pipe(
-        tap(() => {
-          // patchState({})
+        tap(posts => {
+          patchState({posts})
         })
       )
   }
