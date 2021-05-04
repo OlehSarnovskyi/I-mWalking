@@ -9,6 +9,9 @@ export namespace Posts {
   }
 
   export interface Post {
+    readonly _id: string
+    city: string
+    date: Date
     description: string
     imageSrc?: string
   }

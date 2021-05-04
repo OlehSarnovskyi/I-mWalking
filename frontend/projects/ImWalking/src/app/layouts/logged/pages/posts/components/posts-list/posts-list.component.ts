@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
+import {Posts} from "../../models";
 
 @Component({
   selector: 'app-posts-list',
@@ -21,9 +22,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class PostsListComponent implements OnInit {
 
+  @Input() posts: Posts.PostsList;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

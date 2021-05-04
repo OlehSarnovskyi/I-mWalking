@@ -1,6 +1,8 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Store} from "@ngxs/store";
+import {Select, Store} from "@ngxs/store";
 import {PostsState, SearchPostsAction} from "./store";
+import {Observable} from "rxjs";
+import {Posts} from "./models";
 
 @Component({
   selector: 'app-posts-page',
@@ -9,11 +11,8 @@ import {PostsState, SearchPostsAction} from "./store";
 })
 export class PostsPageComponent implements OnInit {
 
-  posts = [];
-
-  get hasPosts(): boolean {
-    return !!this.posts.length
-  }
+  @Select(PostsState.list)
+  posts$: Observable<Posts.PostsList>
 
   constructor(private store$: Store) {}
 
