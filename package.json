@@ -4,11 +4,11 @@
   "description": "Full-stack app",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/index.js",
-    "server": "nodemon backend/index.js",
-    "frontend:install": "npm install --prefix frontend",
-    "frontend:ImWalking": "npm run start --prefix frontend --project ImWalking",
-    "frontend:build:ImWalking": "npm run build --prefix frontend --project ImWalking"
+    "backend_start": "nodemon backend/index.js",
+    "backend_install": "npm install",
+    "frontend_install": "npm install --prefix frontend",
+    "frontend_start:ImWalking": "npm run start --prefix frontend --project ImWalking",
+    "frontend_build:ImWalking": "npm run build --prefix frontend --project ImWalking"
   },
   "author": "Oleh Sarnovskyi",
   "license": "ISC",
