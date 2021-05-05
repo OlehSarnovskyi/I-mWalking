@@ -11,5 +11,5 @@
     <mat-label>Enter description of posts</mat-label>
     <input matInput formControlName="description">
   </mat-form-field>
-  <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Search</button>
+  <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid || (pendingSearch$ | async)">Search</button>
 </form>
