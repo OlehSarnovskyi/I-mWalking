@@ -1,7 +1,7 @@
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {LOGIN_DEFAULTS} from "./login.defaults";
 import {Injectable} from "@angular/core";
-import {LoginAction, SetTokenAction} from "./login.actions";
+import {LoginAction, LogoutAction, SetTokenAction} from "./login.actions";
 import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {LoginService} from "../services";
@@ -38,7 +38,7 @@ export class LoginState {
   }
 
   @Action(LoginAction)
-  login({patchState}: StateContext<Login.State>, { form }: LoginAction): Observable<Login.SuccessResponse> {
+  login({patchState}: StateContext<Login.State>, {form}: LoginAction): Observable<Login.SuccessResponse> {
     return this.loginService.login(form)
       .pipe(
         tap(response => {
@@ -48,6 +48,14 @@ export class LoginState {
           })
         })
       )
+  }
+
+  @Action(LogoutAction)
+  logout({patchState}: StateContext<Login.State>) {
+    localStorage.removeItem('IWToken')
+    patchState({
+      loggedIn: false
+    })
   }
 
   @Action(SetTokenAction)

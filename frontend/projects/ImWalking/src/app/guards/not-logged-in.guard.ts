@@ -23,10 +23,7 @@ export class NotLoggedInGuard implements CanActivate, CanActivateChild, CanLoad 
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.store$.selectSnapshot(LoginState.loggedIn)) {
-      return true
-    }
-    return this.notLoggedIn$
+    return !this.store$.selectSnapshot(LoginState.loggedIn)
   }
 
   canActivateChild(

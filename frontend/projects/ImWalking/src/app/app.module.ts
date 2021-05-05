@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 import {LoginService, LoginState} from "./layouts";
+import {JwtModule} from "@auth0/angular-jwt";
 
 const STATES = [
   LoginState
@@ -40,6 +41,13 @@ const GUARDS = [
     BrowserAnimationsModule,
     HttpClientModule,
     LanguageTranslationModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('IWToken')
+        }
+      }
+    }),
     ...NGXS_MODULES
   ],
   providers: [
