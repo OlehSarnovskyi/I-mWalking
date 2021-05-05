@@ -17,7 +17,6 @@ export class AuthLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.jwtHelper.isTokenExpired()) {
-      // TODO maybe move to guard / think about it
       this.store$.dispatch(new SetTokenAction(this.jwtHelper.tokenGetter()))
       this.router.navigate(['view'])
     }

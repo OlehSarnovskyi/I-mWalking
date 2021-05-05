@@ -54,12 +54,16 @@ export class LoginState {
   logout({patchState}: StateContext<Login.State>) {
     localStorage.removeItem('IWToken')
     patchState({
-      loggedIn: false
+      loggedIn: false,
+      token: null
     })
   }
 
   @Action(SetTokenAction)
   setToken({patchState}: StateContext<Login.State>, {token}: SetTokenAction): void {
-    patchState({token})
+    patchState({
+      loggedIn: true,
+      token
+    })
   }
 }
