@@ -7,5 +7,6 @@ export const LOGIN_DEFAULTS: Login.State = {
     status: '',
     errors: {}
   },
-  token: null
+  token: null,
+  loggedIn: null
 };

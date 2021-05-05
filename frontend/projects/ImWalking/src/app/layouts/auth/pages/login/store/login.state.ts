@@ -28,13 +28,13 @@ export class LoginState {
   }
 
   @Selector()
-  static loggedIn({token}: Login.State): boolean {
-    return !!token
+  static loggedIn({loggedIn}: Login.State): boolean {
+    return loggedIn
   }
 
   @Selector()
-  static notLoggedIn({token}: Login.State): boolean {
-    return !token
+  static notLoggedIn({loggedIn}: Login.State): boolean {
+    return !loggedIn
   }
 
   @Action(LoginAction)
@@ -43,6 +43,7 @@ export class LoginState {
       .pipe(
         tap(response => {
           patchState({
+            loggedIn: true,
             token: response.token
           })
         })
@@ -50,7 +51,7 @@ export class LoginState {
   }
 
   @Action(SetTokenAction)
-  setToken({patchState}: StateContext<Login.State>, { token }: SetTokenAction): void {
+  setToken({patchState}: StateContext<Login.State>, {token}: SetTokenAction): void {
     patchState({token})
   }
 }

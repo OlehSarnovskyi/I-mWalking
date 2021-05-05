@@ -6,6 +6,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JwtModule} from "@auth0/angular-jwt";
 import {TokenInterceptor} from "./interceptors";
 
 
@@ -13,6 +14,13 @@ import {TokenInterceptor} from "./interceptors";
   declarations: [LoggedLayoutComponent],
   imports: [
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('IWToken')
+        }
+      }
+    }),
     LoggedLayoutRoutingModule,
     MatIconModule,
     MatToolbarModule,

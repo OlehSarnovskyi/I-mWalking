@@ -17,5 +17,6 @@ export namespace Login {
       errors: {}
     }
     token: string
+    loggedIn: boolean
   }
 }
