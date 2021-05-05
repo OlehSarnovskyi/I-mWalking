@@ -1,1 +1,8 @@
-<p>map-page works!</p>
+<div style="height: 600px;"
+     leaflet
+     [leafletOptions]="options"
+     [leafletLayersControl]="layersControl"
+     [leafletLayers]="layers"
+     (leafletMapMove)="moved($event)"
+>
+</div>
