@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-chat-page',
+  selector: 'app-settings-page',
   templateUrl: './settings-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

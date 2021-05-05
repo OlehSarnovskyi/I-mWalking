@@ -1,11 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-chat-page',
-  templateUrl: './chat-page.component.html',
+  selector: 'app-map-page',
+  templateUrl: './map-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChatPageComponent implements OnInit {
+export class MapPageComponent implements OnInit {
 
   constructor() { }
 
