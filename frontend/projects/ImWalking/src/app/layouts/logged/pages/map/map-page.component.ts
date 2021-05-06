@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {circle, latLng, LeafletEvent, marker, polygon, tileLayer} from "leaflet";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {circle, icon, latLng, LeafletEvent, MapOptions, Marker, marker, polygon, tileLayer} from "leaflet";
 
 @Component({
   selector: 'app-map-page',
@@ -8,7 +8,7 @@ import {circle, latLng, LeafletEvent, marker, polygon, tileLayer} from "leaflet"
 })
 export class MapPageComponent implements OnInit {
 
-  options = {
+  options: MapOptions = {
     layers: [
       tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
     ],
@@ -33,12 +33,47 @@ export class MapPageComponent implements OnInit {
     marker([ 46.879966, -121.726909 ])
   ];
 
+  map
+  leafletCenter: any
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   moved($event: LeafletEvent) {
-    console.log($event.target.getCenter());
+    console.log(this.leafletCenter);
+  }
+
+  setGeoLocation(position: { coords: { latitude: any; longitude: any } }) {
+    const {
+      coords: { latitude, longitude },
+    } = position;
+
+    const map = this.map.map('map').setView([latitude, longitude], 3);
+
+    this.map.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>contributors'
+    } ).addTo(map);
+  }
+
+  onMapReady($event) {
+    this.map = $event;
+    this.addSampleMarkerWithCurrentPosition()
+  }
+
+  private addSampleMarkerWithCurrentPosition() {
+    let watchID = navigator.geolocation.watchPosition(event => {
+      // 49.850889502366555, 24.021150749323788
+        const marker = new Marker([event.coords.latitude, event.coords.longitude])
+        .setIcon(
+          icon({
+            iconSize: [25, 41],
+            iconAnchor: [13, 41],
+            iconUrl: 'https://img.icons8.com/officel/2x/person-male.png'
+          }));
+      marker.addTo(this.map);
+    });
+    // TODO navigator.geolocation.clearWatch should be implemented
   }
 }

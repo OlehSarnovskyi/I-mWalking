@@ -4,5 +4,7 @@
      [leafletLayersControl]="layersControl"
      [leafletLayers]="layers"
      (leafletMapMove)="moved($event)"
+     (leafletMapReady)="onMapReady($event)"
+     [(leafletCenter)]="leafletCenter"
 >
 </div>
