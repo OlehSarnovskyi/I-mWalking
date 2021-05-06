@@ -8,6 +8,7 @@
     "backend_install": "npm install",
     "frontend_install": "npm install --prefix frontend",
     "frontend_start:ImWalking": "npm run start --prefix frontend --project ImWalking",
+    "frontend_start:host:ImWalking": "npm run start:host --prefix frontend --project ImWalking",
     "frontend_build:ImWalking": "npm run build --prefix frontend --project ImWalking"
   },
   "author": "Oleh Sarnovskyi",
