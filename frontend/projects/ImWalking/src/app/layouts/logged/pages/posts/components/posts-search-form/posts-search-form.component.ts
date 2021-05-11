@@ -32,7 +32,7 @@ export class PostsSearchFormComponent implements OnInit, OnDestroy {
   initForm(): void {
     this.form = this.fb.group({
       city: [null, Validators.required],
-      animal: [null],
+      animal: [null, Validators.required],
       description: ['']
     })
   }

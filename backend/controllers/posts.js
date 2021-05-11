@@ -6,7 +6,7 @@ module.exports.search = async (req, res) => {
     const posts = await Post.find({
         city: req.body.city,
         animal: req.body.animal,
-        description: {'$regex': req.body.description}
+        description: {$regex: new RegExp(req.body.description, 'i')}
     })
 
     res.status(200).json({
