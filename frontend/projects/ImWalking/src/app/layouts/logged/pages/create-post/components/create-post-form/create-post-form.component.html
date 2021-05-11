@@ -1,9 +1,17 @@
 <form [formGroup]="form" ngxsForm="CreatePostState.form" (ngSubmit)="submitted.emit()">
   <mat-form-field appearance="fill">
-    <mat-label>Favorite food</mat-label>
+    <mat-label>City</mat-label>
     <mat-select formControlName="city">
       <mat-option *ngFor="let city of ['Lviv', 'Kyiv']" [value]="city">
         {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Animal</mat-label>
+    <mat-select formControlName="animal">
+      <mat-option *ngFor="let animal of ['Cat', 'Dog', 'Parrot']" [value]="animal">
+        {{animal}}
       </mat-option>
     </mat-select>
   </mat-form-field>

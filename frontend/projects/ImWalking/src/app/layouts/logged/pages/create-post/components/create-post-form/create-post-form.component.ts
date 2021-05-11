@@ -21,6 +21,7 @@ export class CreatePostFormComponent implements OnInit {
   initForm(): void {
     this.form = this.fb.group({
       city: [null, Validators.required],
+      animal: [null, Validators.required],
       description: [null, [Validators.minLength(8), Validators.required]]
     })
   }

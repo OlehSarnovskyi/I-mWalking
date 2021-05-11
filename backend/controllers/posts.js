@@ -25,6 +25,7 @@ module.exports.create = async (req, res) => {
     } else {
         const post = new Post({
             city: req.body.city,
+            animal: req.body.animal,
             description: req.body.description
         })
         try {

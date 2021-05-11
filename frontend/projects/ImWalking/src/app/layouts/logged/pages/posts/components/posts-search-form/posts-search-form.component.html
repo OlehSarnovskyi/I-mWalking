@@ -1,6 +1,6 @@
 <form [formGroup]="form" ngxsForm="PostsState.form" (ngSubmit)="submitted.emit()">
   <mat-form-field appearance="fill">
-    <mat-label>Cities</mat-label>
+    <mat-label>City</mat-label>
     <mat-select formControlName="city">
       <mat-option *ngFor="let city of ['Lviv', 'Kyiv']" [value]="city">
         {{city}}
