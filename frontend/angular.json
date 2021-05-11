@@ -82,6 +82,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ImWalking/src/environments/environment.ts",
+                  "with": "projects/ImWalking/src/environments/environment.hmr.ts"
+                }
+              ]
             }
           }
         },
@@ -93,6 +101,10 @@
           "configurations": {
             "production": {
               "browserTarget": "ImWalking:build:production"
+            },
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "ImWalking:build:hmr"
             }
           }
         },
