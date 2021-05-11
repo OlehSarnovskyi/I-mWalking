@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Actions, ofActionDispatched, ofActionSuccessful} from "@ngxs/store";
 import {SearchPostsAction} from "../../store";
 import {BehaviorSubject, Subscription} from "rxjs";
-import {debounceTime} from "rxjs/operators";
 
 @Component({
   selector: 'app-posts-search-form',
@@ -33,6 +32,7 @@ export class PostsSearchFormComponent implements OnInit, OnDestroy {
   initForm(): void {
     this.form = this.fb.group({
       city: [null, Validators.required],
+      animal: [null],
       description: ['']
     })
   }
