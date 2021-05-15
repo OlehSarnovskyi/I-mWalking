@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {LoginService} from "../services";
 import {Login} from "../models";
+import {TOKEN_NAME} from "../../../../../app.module";
 
 
 @State<Login.State>({
@@ -47,7 +48,7 @@ export class LoginState {
 
   @Action(LogoutAction)
   logout({patchState}: StateContext<Login.State>) {
-    localStorage.removeItem('IWToken')
+    localStorage.removeItem(TOKEN_NAME)
     patchState({
       loggedIn: false,
       token: null

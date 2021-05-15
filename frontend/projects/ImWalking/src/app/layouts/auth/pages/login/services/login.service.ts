@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Login} from "../models";
 import {tap} from "rxjs/operators";
+import {TOKEN_NAME} from "../../../../../app.module";
 
 @Injectable()
 export class LoginService {
@@ -13,7 +14,7 @@ export class LoginService {
     return this.http.post<Login.SuccessResponse>('/api/auth/login', body)
       .pipe(
         tap(response => {
-          localStorage.setItem('IWToken', response.token)
+          localStorage.setItem(TOKEN_NAME, response.token)
         })
       )
   }

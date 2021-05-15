@@ -31,6 +31,8 @@ const GUARDS = [
   NotLoggedInGuard
 ]
 
+export const TOKEN_NAME = 'IWToken'
+
 @NgModule({
   declarations: [
     AppComponent
@@ -44,7 +46,7 @@ const GUARDS = [
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
-          return localStorage.getItem('IWToken')
+          return localStorage.getItem(TOKEN_NAME)
         }
       }
     }),
