@@ -21,7 +21,7 @@ export class LoggedInGuard implements CanActivate, CanActivateChild, CanLoad {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.store$.selectSnapshot(LoginState.notLoggedIn)) {
+    if (!this.store$.selectSnapshot(LoginState.loggedIn)) {
       return true
     }
     return this.loggedIn$
@@ -38,7 +38,7 @@ export class LoggedInGuard implements CanActivate, CanActivateChild, CanLoad {
     route: Route,
     segments: UrlSegment[]
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.store$.selectSnapshot(LoginState.notLoggedIn)) {
+    if (!this.store$.selectSnapshot(LoginState.loggedIn)) {
       return true
     }
     return this.loggedIn$

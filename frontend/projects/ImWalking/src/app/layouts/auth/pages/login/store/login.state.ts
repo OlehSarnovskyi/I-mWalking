@@ -32,11 +32,6 @@ export class LoginState {
     return loggedIn
   }
 
-  @Selector()
-  static notLoggedIn({loggedIn}: Login.State): boolean {
-    return !loggedIn
-  }
-
   @Action(LoginAction)
   login({patchState}: StateContext<Login.State>, {form}: LoginAction): Observable<Login.SuccessResponse> {
     return this.loginService.login(form)
