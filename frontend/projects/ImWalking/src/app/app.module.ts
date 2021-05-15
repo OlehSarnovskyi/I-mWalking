@@ -9,7 +9,7 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {LanguageTranslationModule} from "@modules";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
-import {LoggedInGuard} from "./guards";
+import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 import {LoginService, LoginState} from "./layouts";
 import {JwtModule} from "@auth0/angular-jwt";
 
@@ -27,7 +27,8 @@ const SERVICES = [
   LoginService
 ]
 const GUARDS = [
-  LoggedInGuard
+  LoggedInGuard,
+  NotLoggedInGuard
 ]
 
 @NgModule({

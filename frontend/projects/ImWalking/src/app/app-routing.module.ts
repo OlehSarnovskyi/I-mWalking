@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoggedInGuard} from "./guards";
+import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 
 
 const routes: Routes = [
@@ -8,9 +8,9 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./layouts/app/app-layout.module').then(m => m.AppLayoutModule),
-    canActivate: [!LoggedInGuard],
-    canActivateChild: [!LoggedInGuard],
-    canLoad: [!LoggedInGuard]
+    canActivate: [NotLoggedInGuard],
+    canActivateChild: [NotLoggedInGuard],
+    canLoad: [NotLoggedInGuard]
   },
   {
     path: 'auth',
