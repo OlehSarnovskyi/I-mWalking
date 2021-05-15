@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
-import {LanguageTranslationModule} from "@modules";
+import {LanguageTranslationModule, TOKEN_NAME} from "@modules";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {LoggedInGuard, NotLoggedInGuard} from "./guards";
@@ -31,7 +31,6 @@ const GUARDS = [
   NotLoggedInGuard
 ]
 
-export const TOKEN_NAME = 'IWToken'
 
 @NgModule({
   declarations: [

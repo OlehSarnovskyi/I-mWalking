@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {LoginService} from "../services";
 import {Login} from "../models";
-import {TOKEN_NAME} from "../../../../../app.module";
+import {TOKEN_NAME} from "@modules";
 
 
 @State<Login.State>({

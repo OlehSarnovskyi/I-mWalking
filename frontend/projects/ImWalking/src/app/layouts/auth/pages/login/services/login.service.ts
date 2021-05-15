@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Login} from "../models";
 import {tap} from "rxjs/operators";
-import {TOKEN_NAME} from "../../../../../app.module";
+import {TOKEN_NAME} from "@modules";
 
 @Injectable()
 export class LoginService {
