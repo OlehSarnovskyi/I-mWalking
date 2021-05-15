@@ -10,6 +10,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {NgxsModule} from "@ngxs/store";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {RegisterState} from "./store";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -17,15 +18,16 @@ import {RegisterState} from "./store";
     RegisterPageComponent,
     RegisterFormComponent
   ],
-  imports: [
-    NgxsModule.forFeature([RegisterState]),
-    NgxsFormPluginModule,
-    RegisterRoutingModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule
-  ],
+    imports: [
+        NgxsModule.forFeature([RegisterState]),
+        NgxsFormPluginModule,
+        RegisterRoutingModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule
+    ],
   providers: [RegisterService]
 })
 export class RegisterModule { }

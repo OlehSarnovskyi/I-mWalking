@@ -1,0 +1,15 @@
+mat-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+  width: 500px;
+  min-width: 300px;
+  max-width: 500px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+// TODO refactor repeating

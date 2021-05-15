@@ -7,6 +7,14 @@ import {Observable} from "rxjs";
 @Component({
   selector: 'app-login-page',
   templateUrl: './register-page.component.html',
+  styles: [`
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterPageComponent implements OnInit {
