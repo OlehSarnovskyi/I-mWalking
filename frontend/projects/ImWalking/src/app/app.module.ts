@@ -7,11 +7,13 @@ import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {LanguageTranslationModule, TOKEN_NAME} from "@modules";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 import {LoginService, LoginState} from "./layouts";
 import {JwtModule} from "@auth0/angular-jwt";
+import {SnackBarInterceptor} from "./interceptors";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 const STATES = [
   LoginState
@@ -23,12 +25,21 @@ const NGXS_MODULES = [
   NgxsFormPluginModule.forRoot(),
 ]
 
+const MAT_MODULES = [
+  MatSnackBarModule
+]
+
 const SERVICES = [
   LoginService
 ]
+
 const GUARDS = [
   LoggedInGuard,
   NotLoggedInGuard
+]
+
+const INTERCEPTORS = [
+  {provide: HTTP_INTERCEPTORS, multi: true, useClass: SnackBarInterceptor}
 ]
 
 
@@ -49,11 +60,13 @@ const GUARDS = [
         }
       }
     }),
-    ...NGXS_MODULES
+    ...NGXS_MODULES,
+    ...MAT_MODULES
   ],
   providers: [
     ...SERVICES,
-    ...GUARDS
+    ...GUARDS,
+    ...INTERCEPTORS
   ],
   bootstrap: [AppComponent]
 })
