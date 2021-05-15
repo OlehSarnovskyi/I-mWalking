@@ -6,7 +6,6 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 import {Subscription, timer} from "rxjs";
 
 @Component({
-  selector: 'app-logged-layout',
   templateUrl: './logged-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

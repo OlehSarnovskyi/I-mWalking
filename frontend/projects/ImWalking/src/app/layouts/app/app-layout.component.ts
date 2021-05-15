@@ -32,7 +32,6 @@ export class AppLayoutComponent implements OnInit {
               private jwtHelper: JwtHelperService) {}
 
   ngOnInit(): void {
-    // TODO, think how to rewrite repeating
     if (!this.jwtHelper.isTokenExpired()) {
       this.store$.dispatch(new SetTokenAction(this.jwtHelper.tokenGetter()))
       this.router.navigate(['view'])
