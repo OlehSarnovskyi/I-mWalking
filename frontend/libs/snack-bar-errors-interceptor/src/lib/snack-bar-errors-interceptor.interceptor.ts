@@ -3,16 +3,16 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {EMPTY, Observable} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {AppSnackBarComponent} from "@modules";
+import {SnackBarErrorsInterceptorComponent} from "./snack-bar-errors-interceptor.component";
 
 @Injectable()
-export class SnackBarInterceptor implements HttpInterceptor {
+export class SnackBarErrorsInterceptor implements HttpInterceptor {
 
   constructor(private matSnackBar: MatSnackBar) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(catchError(({error}: HttpErrorResponse) => {
-      this.matSnackBar.openFromComponent(AppSnackBarComponent, {
+      this.matSnackBar.openFromComponent(SnackBarErrorsInterceptorComponent, {
         data: error.message,
         duration: 2000,
         horizontalPosition: 'right',

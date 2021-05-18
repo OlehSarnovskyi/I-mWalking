@@ -19,7 +19,13 @@
       "dom"
     ],
     "paths": {
-      "@modules": ["modules/index.ts"]
+      "@modules": [
+        "modules/index.ts"
+      ],
+      "@libs/snack-bar-errors-interceptor": [
+        "dist/libs/snack-bar-errors-interceptor/snack-bar-errors-interceptor",
+        "dist/libs/snack-bar-errors-interceptor"
+      ]
     }
   },
   "angularCompilerOptions": {

@@ -14,6 +14,6 @@ import {MAT_SNACK_BAR_DATA} from "@angular/material/snack-bar";
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppSnackBarComponent {
+export class SnackBarErrorsInterceptorComponent {
   constructor(@Inject(MAT_SNACK_BAR_DATA) public message: any) {}
 }
