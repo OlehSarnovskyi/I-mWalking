@@ -8,6 +8,7 @@
     "npm": "6.14.10"
   },
   "scripts": {
+    "start": "node backend/index.js",
     "backend_start": "nodemon backend/index.js",
     "backend_install": "npm install",
     "frontend_install": "npm install --prefix frontend",
