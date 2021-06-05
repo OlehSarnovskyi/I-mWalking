@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 
     app.get('*', (req, res) => {
         res.sendFile(
-            path.join('frontend', 'dist', 'ImWalking', 'index.html')
+            path.resolve(__dirname, '.../frontend', 'dist', 'ImWalking', 'index.html')
         )
     })
 }
