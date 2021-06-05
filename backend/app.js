@@ -4,6 +4,7 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
+const path = require('path')
 const authRoutes = require('./routes/auth')
 const postsRoutes = require('./routes/posts')
 const keys = require('./config/keys')
@@ -29,7 +30,9 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../frontend/dist/ImWalking'))
 
     app.get('*', (req, res) => {
-        res.sendFile('../frontend/dist/ImWalking/index.html')
+        res.sendFile(
+            path.join('frontend/dist/ImWalking/index.html')
+        )
     })
 }
 
