@@ -5,10 +5,24 @@ import {LogoutAction, SetTokenAction} from '../auth';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Subscription, timer} from "rxjs";
 
+function Unsub(obs$ = []) {
+  return function(constructor: any) {
+    const orig = constructor.prototype.ngOnDestroy
+    constructor.prototype.ngOnDestroy = function() {
+      for(const ob$ of obs$) {
+        console.log('works');
+        this[ob$].unsubscribe()
+      }
+      orig.apply()
+    }
+  }
+}
+
 @Component({
   templateUrl: './logged-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+@Unsub(["subscription"])
 export class LoggedLayoutComponent implements OnInit, OnDestroy {
 
   subscription = new Subscription()
@@ -36,9 +50,7 @@ export class LoggedLayoutComponent implements OnInit, OnDestroy {
     this.subscription.add(sub1)
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe()
-  }
+  ngOnDestroy() {}
 
   logout() {
     this.store$.dispatch(new LogoutAction())

@@ -2,7 +2,7 @@
   "name": "im-walking",
   "version": "1.0.0",
   "description": "Full-stack app",
-  "main": "index.js",
+  "main": "backend/index.js",
   "scripts": {
     "backend_start": "nodemon backend/index.js",
     "backend_install": "npm install",

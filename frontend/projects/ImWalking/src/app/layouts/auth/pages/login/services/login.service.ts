@@ -7,7 +7,7 @@ import {TOKEN_NAME} from "@modules";
 
 @Injectable()
 export class LoginService {
-
+  // TODO check Injectable to app.module
   constructor(private http: HttpClient) {}
 
   login(body: Login.Form): Observable<Login.SuccessResponse> {

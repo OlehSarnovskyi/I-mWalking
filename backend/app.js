@@ -4,6 +4,7 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
+const path = require('path')
 const authRoutes = require('./routes/auth')
 const postsRoutes = require('./routes/posts')
 const keys = require('./config/keys')
@@ -24,5 +25,17 @@ app.use(bodyParser.json())
 
 app.use('/api/auth', authRoutes)
 app.use('/api/posts', postsRoutes)
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('../frontend/dist/ImWalking'))
+
+    app.get('*', (req, res) => {
+        res.sendFile(
+            path.resolve(
+                __dirname, '../', 'frontend', 'dist', 'ImWalking', 'ImWalking', 'index.html'
+            )
+        )
+    })
+}
 
 module.exports = app
