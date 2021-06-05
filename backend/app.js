@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../frontend/dist/ImWalking'))
 
     app.get('*', (req, res) => {
-        console.log(__dirname);
+        console.log('ALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO');
         res.sendFile(
             path.join(
                 __dirname, '..', 'frontend', 'dist', 'ImWalking', 'ImWalking', 'index.html'
