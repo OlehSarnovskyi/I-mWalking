@@ -30,9 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../frontend/dist/ImWalking'))
 
     app.get('*', (req, res) => {
-        res.sendFile(
-            path.join(__dirname+ '../frontend/dist/ImWalking/index.html')
-        )
+        res.sendFile('../frontend/dist/ImWalking/index.html')
     })
 }
 
