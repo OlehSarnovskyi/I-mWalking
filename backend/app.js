@@ -12,7 +12,7 @@ const keys = require('./config/keys.dev')
 const app = express()
 
 mongoose.connect(keys.mongoURI, {
-    useMongoClient: true
+    useNewUrlParser: true
 })
     .then(() => console.log('MongoDB connected!!!'))
     .catch(error => console.log(`MongoDB failed!!! \n${error}`))
