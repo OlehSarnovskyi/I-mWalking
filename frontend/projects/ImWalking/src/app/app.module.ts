@@ -13,7 +13,7 @@ import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 import {LoginService, LoginState} from "./layouts";
 import {JwtModule} from "@auth0/angular-jwt";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import { SnackBarErrorsInterceptorModule } from '@libs/snack-bar-errors-interceptor';
+// import { SnackBarErrorsInterceptorModule } from '@libs/snack-bar-errors-interceptor';
 
 const STATES = [
   LoginState
@@ -58,7 +58,7 @@ const GUARDS = [
     }),
     ...NGXS_MODULES,
     ...MAT_MODULES,
-    SnackBarErrorsInterceptorModule
+    // SnackBarErrorsInterceptorModule
   ],
   providers: [
     ...SERVICES,
