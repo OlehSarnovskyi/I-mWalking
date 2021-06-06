@@ -5,9 +5,9 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 const path = require('path')
-const authRoutes = require('./routes/auth')
-const postsRoutes = require('./routes/posts')
-const keys = require('./config/keys.dev')
+const authRoutes = require('backend/routes/auth')
+const postsRoutes = require('backend/routes/posts')
+const keys = require('backend/config/keys')
 
 const app = express()
 
@@ -18,7 +18,7 @@ mongoose.connect(keys.mongoURI, {
     .catch(error => console.log(`MongoDB failed!!! \n${error}`))
 
 app.use(passport.initialize())
-require('./middleware/passport')(passport)
+require('backend/middleware/passport')(passport)
 
 app.use(morgan('dev'))
 app.use(cors())
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 
     app.get('*', (req, res) => {
         res.sendFile(
-            path.join(__dirname, '/../', 'frontend', 'dist', 'ImWalking', 'index.html')
+            path.join(__dirname, 'frontend', 'dist', 'ImWalking', 'index.html')
         )
     })
 }

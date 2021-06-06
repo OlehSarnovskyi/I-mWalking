@@ -2,14 +2,14 @@
   "name": "im-walking",
   "version": "1.0.0",
   "description": "Full-stack app",
-  "main": "backend/index.js",
+  "main": "index.js",
   "engines": {
     "node": "12.16.3",
     "npm": "6.14.10"
   },
   "scripts": {
-    "start": "node backend/index.js",
-    "backend_start": "nodemon backend/index.js",
+    "start": "node index",
+    "backend_start": "nodemon index",
     "backend_install": "npm install",
     "frontend_install": "npm install --prefix frontend",
     "frontend_start:ImWalking": "npm run start --prefix frontend --project ImWalking",
