@@ -29,11 +29,11 @@ app.use('/api/auth', authRoutes)
 app.use('/api/posts', postsRoutes)
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(`${__dirname}/../frontend/dist/ImWalking`))
+    app.use(express.static(`frontend/dist/ImWalking`))
 
     app.get('*', (req, res) => {
         res.sendFile(
-            path.join(__dirname, 'frontend', 'dist', 'ImWalking', 'index.html')
+            path.join('frontend', 'dist', 'ImWalking', 'index.html')
         )
     })
 }
