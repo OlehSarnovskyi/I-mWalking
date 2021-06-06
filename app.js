@@ -12,7 +12,9 @@ const keys = require('./backend/config/keys')
 const app = express()
 
 mongoose.connect(keys.mongoURI, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 })
     .then(() => console.log('MongoDB connected!!!'))
     .catch(error => console.log(`MongoDB failed!!! \n${error}`))
