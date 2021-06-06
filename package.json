@@ -16,7 +16,8 @@
     "frontend_start:host:ImWalking": "npm run start:host --prefix frontend --project ImWalking",
     "frontend_start:hmr:ImWalking": "npm run start:hmr --prefix frontend --project ImWalking",
     "frontend_build:ImWalking": "npm run build --prefix frontend --project ImWalking",
-    "heroku_postbuild": "NPM_CONFIG_PRODUCTION=false npm run frontend_install && npm run frontend_build:ImWalkings"
+    "build": "NPM_CONFIG_PRODUCTION=false npm run frontend_install && npm run frontend_build:ImWalking",
+    "heroku_postbuild": "NPM_CONFIG_PRODUCTION=false npm run frontend_install && npm run frontend_build:ImWalking"
   },
   "author": "Oleh Sarnovskyi",
   "license": "ISC",
