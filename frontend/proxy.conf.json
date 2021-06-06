@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://powerful-forest-78162.herokuapp.com",
+    "target": "http://localhost:5000",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
