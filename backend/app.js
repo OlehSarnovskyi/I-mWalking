@@ -11,7 +11,9 @@ const keys = require('./config/keys')
 
 const app = express()
 
-mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI, {
+    useMongoClient: true
+})
     .then(() => console.log('MongoDB connected!!!'))
     .catch(error => console.log(`MongoDB failed!!! \n${error}`))
 
