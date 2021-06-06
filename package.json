@@ -2,21 +2,21 @@
   "name": "im-walking",
   "version": "1.0.0",
   "description": "Full-stack app",
-  "main": "backend/bindex.js",
+  "main": "backend/index.js",
   "engines": {
     "node": "12.16.3",
     "npm": "6.14.10"
   },
   "scripts": {
     "start": "node backend/index",
+    "build": "NPM_CONFIG_PRODUCTION=false npm run frontend_install && npm run frontend_build:ImWalking",
     "backend_start": "nodemon backend/index",
     "backend_install": "npm install",
     "frontend_install": "npm install --prefix frontend",
     "frontend_start:ImWalking": "npm run start --prefix frontend --project ImWalking",
     "frontend_start:host:ImWalking": "npm run start:host --prefix frontend --project ImWalking",
     "frontend_start:hmr:ImWalking": "npm run start:hmr --prefix frontend --project ImWalking",
-    "frontend_build:ImWalking": "npm run build --prefix frontend --project ImWalking",
-    "build": "NPM_CONFIG_PRODUCTION=false npm run frontend_install && npm run frontend_build:ImWalking"
+    "frontend_build:ImWalking": "npm run build --prefix frontend --project ImWalking"
   },
   "author": "Oleh Sarnovskyi",
   "license": "ISC",
