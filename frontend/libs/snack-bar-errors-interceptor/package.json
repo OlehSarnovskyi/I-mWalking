@@ -1,9 +1,6 @@
 {
   "name": "snack-bar-errors-interceptor",
-  "version": "0.0.1",
-  "scripts": {
-    "build:prod": "ng build snack-bar-errors-interceptor --prod"
-  },
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^10.2.0",
     "@angular/core": "^10.2.0"
