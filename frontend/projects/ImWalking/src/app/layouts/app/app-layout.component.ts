@@ -7,20 +7,16 @@ import {SetTokenAction} from "../auth";
 @Component({
   templateUrl: './app-layout.component.html',
   styles: [`
-    .container {
+    mat-card {
+      display: flex;
+      padding: 0;
+    }
+    div {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-    }
-    mat-card {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      height: 80vh;
-      width: 500px;
-      min-width: 300px;
-      max-width: 500px;
+      width: 50vw;
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
