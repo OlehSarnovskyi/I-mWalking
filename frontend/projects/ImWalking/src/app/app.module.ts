@@ -12,8 +12,7 @@ import {environment} from "../environments/environment";
 import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 import {LoginService, LoginState} from "./layouts";
 import {JwtModule} from "@auth0/angular-jwt";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import { SnackBarErrorsInterceptorModule } from '../../../../libs/snack-bar-errors-interceptor/src/lib/snack-bar-errors-interceptor.module';
+import {SnackBarErrorsInterceptorModule} from "snack-bar-errors-interceptor";
 
 const STATES = [
   LoginState
@@ -23,10 +22,6 @@ const NGXS_MODULES = [
   NgxsModule.forRoot([...STATES], { developmentMode: !environment.production }),
   NgxsReduxDevtoolsPluginModule.forRoot(),
   NgxsFormPluginModule.forRoot(),
-]
-
-const MAT_MODULES = [
-  MatSnackBarModule
 ]
 
 const SERVICES = [
@@ -57,7 +52,6 @@ const GUARDS = [
       }
     }),
     ...NGXS_MODULES,
-    ...MAT_MODULES,
     SnackBarErrorsInterceptorModule
   ],
   providers: [
