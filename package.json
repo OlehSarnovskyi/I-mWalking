@@ -18,7 +18,7 @@
     "frontend_start:hmr:ImWalking": "npm run start:hmr --prefix frontend --project ImWalking",
     "frontend_build:ImWalking": "npm run build --prefix frontend --project ImWalking",
     "frontend_build_library:snack-bar-errors-interceptor": "npm --prefix frontend run build_library:snack-bar-errors-interceptor",
-    "frontend_publish_library:snack-bar-errors-interceptor": "npm --prefix frontend/dist/libs/snack-bar-errors-interceptor publish"
+    "frontend_publish_library:snack-bar-errors-interceptor": "npm --prefix frontend/dist/libs/snack-bar-errors-interceptor publish --access public"
   },
   "author": "Oleh Sarnovskyi",
   "license": "ISC",

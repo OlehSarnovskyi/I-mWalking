@@ -12,7 +12,6 @@ import {environment} from "../environments/environment";
 import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 import {LoginService, LoginState} from "./layouts";
 import {JwtModule} from "@auth0/angular-jwt";
-// @ts-ignore
 import {SnackBarErrorsInterceptorModule} from "snack-bar-errors-interceptor";
 
 const STATES = [
