@@ -14,7 +14,7 @@ export class SnackBarErrorsInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(catchError(({error}: HttpErrorResponse) => {
       this.matSnackBar.openFromComponent(SnackBarErrorsInterceptorComponent, {
         data: error.message,
-        duration: 2000000,
+        duration: 2000,
         horizontalPosition: 'right',
         verticalPosition: 'top'
       })
