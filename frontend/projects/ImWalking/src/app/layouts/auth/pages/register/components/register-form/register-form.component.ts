@@ -11,7 +11,7 @@ export class RegisterFormComponent implements OnInit {
 
   @Output() submitted = new EventEmitter<void>()
 
-  hide: boolean
+  hide = true
   form: FormGroup
 
   constructor(private fb: FormBuilder) {}
