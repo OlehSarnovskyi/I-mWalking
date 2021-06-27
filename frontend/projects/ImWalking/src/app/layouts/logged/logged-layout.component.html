@@ -1,21 +1,2 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="posts">
-      <mat-icon>list</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="create-post">
-      <mat-icon>library_add</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="map">
-      <mat-icon>email</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="settings">
-      <mat-icon>settings</mat-icon>
-    </button>
-    <button (click)="logout()">
-      logout
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
-
+<app-logged-header (logout)="logout()"></app-logged-header>
 <router-outlet></router-outlet>
