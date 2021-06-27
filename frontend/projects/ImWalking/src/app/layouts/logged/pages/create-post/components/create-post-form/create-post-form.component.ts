@@ -4,6 +4,14 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 @Component({
   selector: 'app-create-post-form',
   templateUrl: './create-post-form.component.html',
+  styles: [`
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 90%;
+      margin: auto;
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreatePostFormComponent implements OnInit {
