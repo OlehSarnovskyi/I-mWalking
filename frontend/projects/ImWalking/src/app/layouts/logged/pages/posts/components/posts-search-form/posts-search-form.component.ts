@@ -7,6 +7,14 @@ import {BehaviorSubject, Subscription} from "rxjs";
 @Component({
   selector: 'app-posts-search-form',
   templateUrl: './posts-search-form.component.html',
+  styles: [`
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: auto;
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostsSearchFormComponent implements OnInit, OnDestroy {
