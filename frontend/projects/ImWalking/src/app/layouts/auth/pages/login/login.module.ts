@@ -9,6 +9,7 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
+import {PasteEventTrimmerModule} from "paste-event-trimmer";
 
 
 @NgModule({
@@ -16,15 +17,16 @@ import {MatCardModule} from "@angular/material/card";
     LoginPageComponent,
     LoginFormComponent
   ],
-    imports: [
-        NgxsFormPluginModule,
-        CommonModule,
-        LoginRoutingModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatIconModule,
-        MatButtonModule,
-        MatCardModule
-    ]
+  imports: [
+    NgxsFormPluginModule,
+    CommonModule,
+    LoginRoutingModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    PasteEventTrimmerModule
+  ]
 })
 export class LoginModule {}

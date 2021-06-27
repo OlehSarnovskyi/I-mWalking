@@ -2,7 +2,7 @@
   <form [formGroup]="form" ngxsForm="LoginState.form" (ngSubmit)="submitted.emit()">
     <mat-form-field appearance="fill">
       <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" formControlName="email">
+      <input matInput placeholder="pat@example.com" formControlName="email" pasteEventTrimmer>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Enter your password</mat-label>

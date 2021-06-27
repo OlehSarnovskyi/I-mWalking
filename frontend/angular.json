@@ -198,6 +198,46 @@
           }
         }
       }
+    },
+    "paste-event-trimmer": {
+      "projectType": "library",
+      "root": "libs/paste-event-trimmer",
+      "sourceRoot": "libs/paste-event-trimmer/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/paste-event-trimmer/tsconfig.lib.json",
+            "project": "libs/paste-event-trimmer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/paste-event-trimmer/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/paste-event-trimmer/src/test.ts",
+            "tsConfig": "libs/paste-event-trimmer/tsconfig.spec.json",
+            "karmaConfig": "libs/paste-event-trimmer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/paste-event-trimmer/tsconfig.lib.json",
+              "libs/paste-event-trimmer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ImWalking",
