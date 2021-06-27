@@ -13,6 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {CommonModule} from "@angular/common";
 import {MatOptionModule} from "@angular/material/core";
+import {PasteEventTrimmerModule} from "paste-event-trimmer";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {MatOptionModule} from "@angular/material/core";
     NgxsModule.forFeature([CreatePostState]),
     NgxsFormPluginModule,
     QuillModule.forRoot(),
+    PasteEventTrimmerModule
   ],
   providers: [CreatePostService]
 })

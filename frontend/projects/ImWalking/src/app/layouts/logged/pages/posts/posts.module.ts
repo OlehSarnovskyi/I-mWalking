@@ -15,6 +15,7 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {NgxsModule} from "@ngxs/store";
 import {PostsState} from "./store";
 import {PostsService} from "./services";
+import {PasteEventTrimmerModule} from "paste-event-trimmer";
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {PostsService} from "./services";
     MatSelectModule,
     MatOptionModule,
     MatCardModule,
+    PasteEventTrimmerModule
   ],
   providers: [PostsService]
 })
