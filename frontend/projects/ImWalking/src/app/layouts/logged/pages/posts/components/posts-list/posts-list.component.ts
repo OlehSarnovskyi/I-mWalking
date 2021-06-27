@@ -15,6 +15,9 @@ import {Posts} from "../../models";
     }
     mat-list-item {
       height: auto !important;
+      display: flex !important;
+      justify-content: center;
+      margin-top: 10px;
     }
     `
   ],
