@@ -3,8 +3,13 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular
 @Component({
   selector: 'app-logged-header',
   templateUrl: './logged-header.component.html',
-  styles: [],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styles: [`
+    mat-toolbar {
+      display: flex;
+      justify-content: space-between;
+    }
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoggedHeaderComponent {
   @Output() logout = new EventEmitter<void>()
