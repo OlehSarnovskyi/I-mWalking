@@ -1,9 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {SettingsPageComponent} from "./settings-page.component";
+import {SettingsMyDataComponent, SettingsMyPostsComponent} from "./components";
 
 const routes: Routes = [
-  {path: '', component: SettingsPageComponent}
+  {path: '', component: SettingsPageComponent, children: [
+      {path: 'my-data', component: SettingsMyDataComponent},
+      {path: 'my-posts', component: SettingsMyPostsComponent},
+    ]
+  }
 ];
 
 @NgModule({
