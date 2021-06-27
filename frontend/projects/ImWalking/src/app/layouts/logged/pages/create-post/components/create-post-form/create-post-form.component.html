@@ -15,6 +15,6 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <quill-editor [styles]="{'height': '200px'}" formControlName="description"></quill-editor>
+  <quill-editor [styles]="{'height': '200px'}" formControlName="description" pasteEventTrimmer></quill-editor>
   <button type="submit" mat-flat-button color="primary">Post</button>
 </form>

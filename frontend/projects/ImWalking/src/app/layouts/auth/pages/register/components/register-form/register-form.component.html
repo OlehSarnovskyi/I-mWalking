@@ -2,11 +2,11 @@
   <form [formGroup]="form" ngxsForm="RegisterState.form" (ngSubmit)="submitted.emit()">
     <mat-form-field appearance="fill">
       <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" formControlName="email">
+      <input matInput placeholder="pat@example.com" formControlName="email" pasteEventTrimmer>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" pasteEventTrimmer>
       <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -14,7 +14,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Enter your name</mat-label>
-      <input matInput formControlName="name">
+      <input matInput formControlName="name" pasteEventTrimmer>
     </mat-form-field>
     <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Register</button>
     <button type="button" mat-flat-button color="accent" routerLink="/auth/login">Sign In</button>
