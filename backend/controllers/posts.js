@@ -16,7 +16,7 @@ module.exports.search = async (req, res) => {
 
 module.exports.create = async (req, res) => {
 
-    const possiblePost = await Post.findOne({_id: req.body._id})
+    const possiblePost = await Post.findOne({author: req.body._id})
 
     if (possiblePost) {
         res.status(409).json({
@@ -26,7 +26,8 @@ module.exports.create = async (req, res) => {
         const post = new Post({
             city: req.body.city,
             animal: req.body.animal,
-            description: req.body.description
+            description: req.body.description,
+            author: req.body._id
         })
         try {
             await post.save()

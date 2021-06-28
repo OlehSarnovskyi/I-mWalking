@@ -18,7 +18,7 @@ const postSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    user: {
+    author: {
         ref: 'user',
         type: Schema.Types.ObjectId
     },
