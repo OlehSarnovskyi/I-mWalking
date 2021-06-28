@@ -15,6 +15,15 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <quill-editor [styles]="{'height': '200px'}" formControlName="description" pasteEventTrimmer></quill-editor>
-  <button type="submit" mat-flat-button color="primary">Post</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Leave a comment</mat-label>
+    <textarea
+      matInput
+      placeholder="Шукаю дівчинку Жако для Самця..."
+      formControlName="description"
+      pasteEventTrimmer
+    ></textarea>
+  </mat-form-field>
+<!--  <quill-editor [styles]="{'height': '200px'}" formControlName="description" pasteEventTrimmer></quill-editor>-->
+  <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Post</button>
 </form>

@@ -32,5 +32,11 @@ export class CreatePostFormComponent implements OnInit {
       animal: [null, Validators.required],
       description: [null, [Validators.minLength(8), Validators.required]]
     })
+
+    // Observer for quill-editor
+    // BUG!!! (quill-editor)
+    // this.form.get('description').valueChanges.subscribe(val => {
+    //   this.changeDetectorRef.detectChanges()
+    // })
   }
 }
