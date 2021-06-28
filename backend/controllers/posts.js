@@ -40,3 +40,13 @@ module.exports.create = async (req, res) => {
     }
 }
 
+module.exports.delete = async (req, res) => {
+    try {
+        await Post.findOneAndDelete({author: req.params._id})
+        res.status(200).json({
+            message: 'You\'ve deleted your post'
+        })
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}

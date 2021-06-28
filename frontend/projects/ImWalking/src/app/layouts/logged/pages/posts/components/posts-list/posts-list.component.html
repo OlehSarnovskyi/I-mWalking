@@ -11,8 +11,7 @@
         <p [innerHTML]="post.description"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>request</button>
-        <button mat-button>share</button>
+        <button mat-button (click)="delete(post?.author)">delete</button>
       </mat-card-actions>
     </mat-card>
   </mat-list-item>

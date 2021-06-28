@@ -11,6 +11,7 @@ export namespace Posts {
 
   export interface Post {
     readonly _id: string
+    readonly author: string
     city: string
     animal: string
     date: Date

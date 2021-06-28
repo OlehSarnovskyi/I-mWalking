@@ -14,6 +14,7 @@ export class CreatePostPageComponent {
   constructor(private store$: Store, private jwtHelper: JwtHelperService) {}
 
   create(): void {
+    // TODO ?security?
     const _id = this.jwtHelper.decodeToken(this.store$.selectSnapshot(LoginState.token)).userId
     this.store$.dispatch(new CreatePostAction({
       _id,
