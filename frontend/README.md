@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Publish libraries
+
+1) Build library <library_name>, 
+   1.1) Open new terminal in frontend directory
+   1.2) Run `ng build <library_name> --prod`
+2) Publish <library_name>
+   2.1) Open new terminal in frontend/dist/libs/<library_name> directory
+   2.2) Run `npm publish --access public`

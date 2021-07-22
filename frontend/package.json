@@ -9,8 +9,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build_library:snack-bar-errors-interceptor": "ng build snack-bar-errors-interceptor --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
