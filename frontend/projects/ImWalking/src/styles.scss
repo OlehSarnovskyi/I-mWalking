@@ -8,3 +8,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+mat-card.auth_layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+  width: 300px;
+  padding: 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
