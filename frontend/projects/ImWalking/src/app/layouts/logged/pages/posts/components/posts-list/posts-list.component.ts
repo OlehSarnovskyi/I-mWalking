@@ -1,6 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 import {Posts} from "../../models";
-import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-posts-list',
@@ -28,12 +27,12 @@ export class PostsListComponent implements OnInit {
 
   @Input() posts: Posts.PostsList;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {}
 
-  // TODO refactor
-  delete(author: string) {
-    this.httpClient.delete(`/api/posts/delete/${author}`).subscribe()
+  like(author: string) {
+    // TODO refactor
+    // this.httpClient.delete(`/api/posts/delete/${author}`).subscribe()
   }
 }
