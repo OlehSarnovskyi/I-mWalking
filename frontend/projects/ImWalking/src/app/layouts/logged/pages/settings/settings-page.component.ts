@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-settings-page',
@@ -16,5 +16,4 @@ export class SettingsPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

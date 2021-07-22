@@ -1,4 +1,7 @@
 export * from './components'
+export * from './models'
+export * from './store'
+export * from './services'
 export * from './settings-page.component'
 export * from './settings-routing.module'
 export * from './settings.module'

@@ -22,4 +22,12 @@ export class PostsPageComponent implements OnInit {
   search(): void {
     this.store$.dispatch(new SearchPostsAction(this.store$.selectSnapshot(PostsState.formValue)))
   }
+
+  callAction(action: Posts.Action) {
+    this[action]()
+  }
+
+  like() {
+    console.log('like')
+  }
 }

@@ -1,3 +1,7 @@
 <app-posts-search-form (submitted)="search()"></app-posts-search-form>
 
-<app-posts-list [posts]="posts$ | async"></app-posts-list>
+<app-posts-list
+  [actions]="['like']"
+  [posts]="posts$ | async"
+  (actionEmitter)="callAction($event)"
+></app-posts-list>

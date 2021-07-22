@@ -1,5 +1,5 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
-import {Posts} from "../../models";
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Posts} from "../../pages";
 
 @Component({
   selector: 'app-posts-list',
@@ -25,7 +25,11 @@ import {Posts} from "../../models";
 })
 export class PostsListComponent implements OnInit {
 
+  @Input() actions: Posts.Action[]
+
   @Input() posts: Posts.PostsList;
+
+  @Output() actionEmitter = new EventEmitter<Posts.Action>()
 
   constructor() { }
 

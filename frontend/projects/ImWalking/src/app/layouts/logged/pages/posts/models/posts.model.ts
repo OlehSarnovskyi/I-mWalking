@@ -28,4 +28,6 @@ export namespace Posts {
     }
     posts: PostsList
   }
+
+  export type Action = 'like' | 'edit' | 'delete'
 }

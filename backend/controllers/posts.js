@@ -1,6 +1,17 @@
 const Post = require('../models/Post')
 const errorHandler = require('../utils/errorHandler')
 
+module.exports.getMy = async (req, res) => {
+    try {
+        const posts = await Post.find({author: req.params._id})
+        res.status(200).json({
+            list: posts
+        })
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}
+
 module.exports.search = async (req, res) => {
 
     const posts = await Post.find({
