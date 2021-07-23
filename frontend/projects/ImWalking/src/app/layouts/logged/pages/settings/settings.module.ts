@@ -8,6 +8,9 @@ import {CommonModule} from "@angular/common";
 import {NgxsModule} from "@ngxs/store";
 import {SettingsState} from "./store";
 import {SettingsService} from "./services";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import {SettingsService} from "./services";
     NgxsModule.forFeature([SettingsState]),
     SettingsRoutingModule,
     LoggedLayoutModule,
-    CommonModule
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [SettingsService]
 })
