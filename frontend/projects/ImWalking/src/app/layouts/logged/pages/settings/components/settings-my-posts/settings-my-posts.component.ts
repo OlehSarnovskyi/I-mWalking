@@ -6,6 +6,8 @@ import {Posts} from "../../../posts";
 import {LoginState} from "../../../../../auth";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {filter, take} from "rxjs/operators";
+import {Router} from "@angular/router";
+import {UpdateFormValue} from "@ngxs/form-plugin";
 
 @Component({
   selector: 'app-settings-my-posts',
@@ -20,7 +22,11 @@ export class SettingsMyPostsComponent implements OnInit {
   @Select(SettingsState.myPosts)
   myPosts$: Observable<Posts.PostsList>
 
-  constructor(private store$: Store, private jwtHelper: JwtHelperService) {}
+  constructor(
+    private store$: Store,
+    private jwtHelper: JwtHelperService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.token$.pipe(
@@ -37,7 +43,16 @@ export class SettingsMyPostsComponent implements OnInit {
   }
 
   edit() {
-    console.log('edit');
+    this.router.navigate(['view', 'create-post'], {queryParams: {update: true}})
+    this.store$.dispatch(
+      new UpdateFormValue({
+        value: {
+          ...this.store$.selectSnapshot(SettingsState.myPosts).list[0]
+        },
+        path: 'CreatePostState.form'
+      })
+    );
+
   }
 
   delete() {
