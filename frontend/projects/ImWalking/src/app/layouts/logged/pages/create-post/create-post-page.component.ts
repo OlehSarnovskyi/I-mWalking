@@ -39,10 +39,7 @@ export class CreatePostPageComponent implements OnInit {
       switchMap(() => this.store$.dispatch(new CreatePostAction({
         _id,
         ...this.store$.selectSnapshot(CreatePostState.formValue)
-      }))),
-      tap(() => {
-        console.log('LOG');
-      })
+      })))
     ).subscribe()
   }
 }

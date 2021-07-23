@@ -36,7 +36,7 @@ export class SettingsState {
   }
 
   @Action(DeleteMyPostAction)
-  delete({patchState}: StateContext<Settings.State>, { id }: DeleteMyPostAction): Observable<void> {
+  delete({patchState}: StateContext<Settings.State>, { id }: DeleteMyPostAction): Observable<{ message }> {
     return this.settingsService.deleteMyPost(id)
       .pipe(
         tap(() => {
