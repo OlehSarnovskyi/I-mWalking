@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Select, Store} from "@ngxs/store";
-import {SearchMyPostsAction, SettingsState} from "../../store";
+import {DeleteMyPostAction, SearchMyPostsAction, SettingsState} from "../../store";
 import {Observable} from "rxjs";
 import {Posts} from "../../../posts";
 import {LoginState} from "../../../../../auth";
@@ -41,6 +41,7 @@ export class SettingsMyPostsComponent implements OnInit {
   }
 
   delete() {
-    console.log('delete');
+    const _id = this.jwtHelper.decodeToken(this.store$.selectSnapshot(LoginState.token)).userId
+    this.store$.dispatch(new DeleteMyPostAction(_id))
   }
 }

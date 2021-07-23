@@ -1,6 +1,6 @@
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {Injectable} from "@angular/core";
-import {SearchMyPostsAction} from "./settings.actions";
+import {DeleteMyPostAction, SearchMyPostsAction} from "./settings.actions";
 import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {Settings} from "../models";
@@ -31,6 +31,16 @@ export class SettingsState {
       .pipe(
         tap(posts => {
           patchState({posts})
+        })
+      )
+  }
+
+  @Action(DeleteMyPostAction)
+  delete({patchState}: StateContext<Settings.State>, { id }: DeleteMyPostAction): Observable<void> {
+    return this.settingsService.deleteMyPost(id)
+      .pipe(
+        tap(() => {
+          patchState({posts: null})
         })
       )
   }

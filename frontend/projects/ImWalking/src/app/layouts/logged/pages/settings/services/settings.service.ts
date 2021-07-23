@@ -11,4 +11,8 @@ export class SettingsService {
   getMyPosts(id: string): Observable<Posts.PostsList> {
     return this.http.get<Posts.PostsList>(`/api/posts/getMy/${id}`)
   }
+
+  deleteMyPost(id: string): Observable<void> {
+    return this.http.delete<void>(`/api/posts/delete/${id}`)
+  }
 }

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Posts} from "../../pages";
 
 @Component({
@@ -23,20 +23,11 @@ import {Posts} from "../../pages";
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PostsListComponent implements OnInit {
+export class PostsListComponent {
 
   @Input() actions: Posts.Action[]
 
   @Input() posts: Posts.PostsList;
 
   @Output() actionEmitter = new EventEmitter<Posts.Action>()
-
-  constructor() { }
-
-  ngOnInit(): void {}
-
-  like(author: string) {
-    // TODO refactor
-    // this.httpClient.delete(`/api/posts/delete/${author}`).subscribe()
-  }
 }
