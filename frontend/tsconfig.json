@@ -22,9 +22,9 @@
       "@modules": [
         "modules/index.ts"
       ],
-      "@libs/snack-bar-errors-interceptor": [
-        "dist/libs/snack-bar-errors-interceptor/snack-bar-errors-interceptor",
-        "dist/libs/snack-bar-errors-interceptor"
+      "@libs/snack-bar-message-interceptor": [
+        "dist/libs/snack-bar-message-interceptor/snack-bar-message-interceptor",
+        "dist/libs/snack-bar-message-interceptor"
       ],
       "paste-event-trimmer": [
         "dist/libs/paste-event-trimmer/paste-event-trimmer",

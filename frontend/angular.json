@@ -159,38 +159,38 @@
         }
       }
     },
-    "snack-bar-errors-interceptor": {
+    "snack-bar-message-interceptor": {
       "projectType": "library",
-      "root": "libs/snack-bar-errors-interceptor",
-      "sourceRoot": "libs/snack-bar-errors-interceptor/src",
+      "root": "libs/snack-bar-message-interceptor",
+      "sourceRoot": "libs/snack-bar-message-interceptor/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "libs/snack-bar-errors-interceptor/tsconfig.lib.json",
-            "project": "libs/snack-bar-errors-interceptor/ng-package.json"
+            "tsConfig": "libs/snack-bar-message-interceptor/tsconfig.lib.json",
+            "project": "libs/snack-bar-message-interceptor/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/snack-bar-errors-interceptor/tsconfig.lib.prod.json"
+              "tsConfig": "libs/snack-bar-message-interceptor/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "libs/snack-bar-errors-interceptor/src/test.ts",
-            "tsConfig": "libs/snack-bar-errors-interceptor/tsconfig.spec.json",
-            "karmaConfig": "libs/snack-bar-errors-interceptor/karma.conf.js"
+            "main": "libs/snack-bar-message-interceptor/src/test.ts",
+            "tsConfig": "libs/snack-bar-message-interceptor/tsconfig.spec.json",
+            "karmaConfig": "libs/snack-bar-message-interceptor/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/snack-bar-errors-interceptor/tsconfig.lib.json",
-              "libs/snack-bar-errors-interceptor/tsconfig.spec.json"
+              "libs/snack-bar-message-interceptor/tsconfig.lib.json",
+              "libs/snack-bar-message-interceptor/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
