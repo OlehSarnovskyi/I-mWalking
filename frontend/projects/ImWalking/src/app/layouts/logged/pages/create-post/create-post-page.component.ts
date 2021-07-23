@@ -16,7 +16,6 @@ import {of} from "rxjs";
 export class CreatePostPageComponent implements OnInit {
 
   isUpdate = false
-  imageSrc: string
 
   constructor(private store$: Store,
               private jwtHelper: JwtHelperService,
@@ -39,8 +38,7 @@ export class CreatePostPageComponent implements OnInit {
       switchMap(() => this.isUpdate ? this.store$.dispatch(new DeleteMyPostAction(_id)) : of(null)),
       switchMap(() => this.store$.dispatch(new CreatePostAction({
         _id,
-        ...this.store$.selectSnapshot(CreatePostState.formValue),
-        imageSrc: this.imageSrc
+        ...this.store$.selectSnapshot(CreatePostState.formValue)
       })))
     ).subscribe()
   }

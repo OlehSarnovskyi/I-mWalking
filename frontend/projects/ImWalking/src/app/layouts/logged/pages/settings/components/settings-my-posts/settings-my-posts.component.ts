@@ -43,16 +43,16 @@ export class SettingsMyPostsComponent implements OnInit {
   }
 
   edit() {
-    this.router.navigate(['view', 'create-post'], {queryParams: {update: true}})
-    this.store$.dispatch(
-      new UpdateFormValue({
-        value: {
-          ...this.store$.selectSnapshot(SettingsState.myPosts).list[0]
-        },
-        path: 'CreatePostState.form'
-      })
-    );
-
+    this.router.navigate(['view', 'create-post'], {queryParams: {update: true}}).then(() => {
+      this.store$.dispatch(
+        new UpdateFormValue({
+          value: {
+            ...this.store$.selectSnapshot(SettingsState.myPosts).list[0]
+          },
+          path: 'CreatePostState.form'
+        })
+      )
+    })
   }
 
   delete() {
