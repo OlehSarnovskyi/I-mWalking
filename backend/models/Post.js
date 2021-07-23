@@ -22,6 +22,10 @@ const postSchema = new Schema({
         ref: 'user',
         type: Schema.Types.ObjectId
     },
+    image: {
+        ref: 'image',
+        type: Schema.Types.ObjectId
+    }
 })
 
 module.exports = mongoose.model('post', postSchema)

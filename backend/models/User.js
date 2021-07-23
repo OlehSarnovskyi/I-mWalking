@@ -15,6 +15,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    // TODO refactor for imgSrc
     imageSrc: {
         type: String,
         default: ''

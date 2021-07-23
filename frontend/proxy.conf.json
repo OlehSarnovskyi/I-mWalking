@@ -4,11 +4,5 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
-  },
-  "/uploads (TODO for images)/*": {
-    "target": "http://localhost:5000",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true
   }
 }

@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const path = require('path')
 const authRoutes = require('./routes/auth')
 const postsRoutes = require('./routes/posts')
+const postsImageRoutes = require('./routes/postsImage')
 const keys = require('./config/keys')
 
 const app = express()
@@ -25,6 +26,7 @@ app.use(bodyParser.json({limit: '50mb'}))
 
 app.use('/api/auth', authRoutes)
 app.use('/api/posts', postsRoutes)
+app.use('/api/upload', postsImageRoutes)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/dist/ImWalking'))
