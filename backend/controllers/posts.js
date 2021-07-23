@@ -38,6 +38,7 @@ module.exports.create = async (req, res) => {
             city: req.body.city,
             animal: req.body.animal,
             description: req.body.description,
+            imageSrc: req.body.imageSrc,
             author: req.body._id
         })
         try {

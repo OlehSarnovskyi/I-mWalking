@@ -14,16 +14,16 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
+    imageSrc: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
     },
     author: {
         ref: 'user',
-        type: Schema.Types.ObjectId
-    },
-    image: {
-        ref: 'image',
         type: Schema.Types.ObjectId
     }
 })
