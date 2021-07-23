@@ -4,6 +4,7 @@ export namespace CreatePost {
     city: string
     animal: string
     description: string
+    imageSrc: string
   }
 
   export interface State {

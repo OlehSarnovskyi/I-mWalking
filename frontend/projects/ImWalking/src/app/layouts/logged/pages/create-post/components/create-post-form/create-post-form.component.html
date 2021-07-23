@@ -24,6 +24,8 @@
       pasteEventTrimmer
     ></textarea>
   </mat-form-field>
+  <input type="file" formControlName="image" (change)="onFileChanged($event)">
+  <img [src]="imageSrc" style="width: 200px; height: 150px">
 <!--  <quill-editor [styles]="{'height': '200px'}" formControlName="description" pasteEventTrimmer></quill-editor>-->
   <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Post</button>
 </form>

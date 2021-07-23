@@ -18,7 +18,11 @@ export class CreatePostFormComponent implements OnInit {
 
   @Output() submitted = new EventEmitter<void>()
 
+  // TODO refactor
+  @Output() imageSrcEmitter = new EventEmitter<string>()
+
   form: FormGroup
+  imageSrc: string
 
   constructor(private fb: FormBuilder) {}
 
@@ -30,7 +34,12 @@ export class CreatePostFormComponent implements OnInit {
     this.form = this.fb.group({
       city: [null, Validators.required],
       animal: [null, Validators.required],
-      description: [null, [Validators.minLength(8), Validators.required]]
+      description: [null, [Validators.minLength(8), Validators.required]],
+      imageSrc: [null, Validators.required]
+    })
+
+    this.form.valueChanges.subscribe(val => {
+      console.log(val);
     })
 
     // Observer for quill-editor
@@ -38,5 +47,16 @@ export class CreatePostFormComponent implements OnInit {
     // this.form.get('description').valueChanges.subscribe(val => {
     //   this.changeDetectorRef.detectChanges()
     // })
+  }
+
+  onFileChanged(event) {
+    if (event.target.files && event.target.files.length) {
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload = (event) => {
+        this.imageSrc = event.target.result as string;
+        this.imageSrcEmitter.emit(this.imageSrc)
+      }
+    }
   }
 }

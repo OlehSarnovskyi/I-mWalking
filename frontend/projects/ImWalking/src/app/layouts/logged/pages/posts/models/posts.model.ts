@@ -16,7 +16,7 @@ export namespace Posts {
     animal: string
     date: Date
     description: string
-    imageSrc?: string
+    imageSrc: string
   }
 
   export interface State {

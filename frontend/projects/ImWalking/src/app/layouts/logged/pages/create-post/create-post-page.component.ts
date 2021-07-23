@@ -4,8 +4,8 @@ import {CreatePostAction, CreatePostState} from "./store";
 import {LoginState} from "../../../auth";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {DeleteMyPostAction} from "../settings";
-import {ActivatedRoute, Router} from "@angular/router";
-import {switchMap, tap} from "rxjs/operators";
+import {ActivatedRoute} from "@angular/router";
+import {switchMap} from "rxjs/operators";
 import {of} from "rxjs";
 
 @Component({
@@ -16,11 +16,12 @@ import {of} from "rxjs";
 export class CreatePostPageComponent implements OnInit {
 
   isUpdate = false
+  imageSrc: string
 
   constructor(private store$: Store,
               private jwtHelper: JwtHelperService,
-              private activatedRoute: ActivatedRoute,
-              private router: Router) {}
+              private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(val => {
@@ -38,7 +39,8 @@ export class CreatePostPageComponent implements OnInit {
       switchMap(() => this.isUpdate ? this.store$.dispatch(new DeleteMyPostAction(_id)) : of(null)),
       switchMap(() => this.store$.dispatch(new CreatePostAction({
         _id,
-        ...this.store$.selectSnapshot(CreatePostState.formValue)
+        ...this.store$.selectSnapshot(CreatePostState.formValue),
+        imageSrc: this.imageSrc
       })))
     ).subscribe()
   }
