@@ -15,6 +15,7 @@ import {SettingsService} from "../../services";
       height: 100px;
       width: 100px;
       object-fit: cover;
+      border: 5px solid #3f51b5;
       border-radius: 50%;
     }
   `],
@@ -26,7 +27,6 @@ export class SettingsMyDataComponent implements OnInit {
   token$: Observable<string>
 
   form: FormGroup
-  defaultImage = 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg'
 
   constructor(private fb: FormBuilder,
               private jwtHelper: JwtHelperService,

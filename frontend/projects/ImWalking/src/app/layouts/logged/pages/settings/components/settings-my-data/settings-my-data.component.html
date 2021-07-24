@@ -1,7 +1,7 @@
 <mat-card>
   <form [formGroup]="form">
     <p>
-      <img class="avatar-image" [src]="form.value.imageSrc || defaultImage">
+      <img class="avatar-image" [src]="form.value.imageSrc" appDefaultImage>
     </p>
     <p>
       <mat-form-field appearance="legacy">
