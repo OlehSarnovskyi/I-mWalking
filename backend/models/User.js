@@ -15,11 +15,18 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    // TODO refactor for imgSrc
     imageSrc: {
         type: String,
         default: ''
     },
+    telephone: {
+        type: String,
+        default: ''
+    },
+    contactLinks: [{
+        type: String,
+        default: ''
+    }],
     posts: [{ type: Schema.Types.ObjectId, ref: 'post'}]
 })
 
