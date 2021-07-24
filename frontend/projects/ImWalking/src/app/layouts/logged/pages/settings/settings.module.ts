@@ -11,6 +11,8 @@ import {SettingsService} from "./services";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {MatInputModule} from "@angular/material/input";
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ],
   providers: [SettingsService]
 })
