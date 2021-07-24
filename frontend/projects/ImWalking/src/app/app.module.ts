@@ -12,8 +12,7 @@ import {environment} from "../environments/environment";
 import {LoggedInGuard, NotLoggedInGuard} from "./guards";
 import {LoginService, LoginState} from "./layouts";
 import {JwtModule} from "@auth0/angular-jwt";
-import {SnackBarErrorsInterceptorModule} from "snack-bar-errors-interceptor";
-import {SnackBarMessageInterceptorModule} from "../../../../libs/snack-bar-message-interceptor/src/lib/snack-bar-message-interceptor.module";
+import {SnackBarMessageInterceptorModule} from "snack-bar-message-interceptor";
 
 const STATES = [
   LoginState
@@ -53,8 +52,6 @@ const GUARDS = [
       }
     }),
     ...NGXS_MODULES,
-    // TODO 24.07 SnackBarMessageInterceptorModule
-    // SnackBarErrorsInterceptorModule,
     SnackBarMessageInterceptorModule
   ],
   providers: [
