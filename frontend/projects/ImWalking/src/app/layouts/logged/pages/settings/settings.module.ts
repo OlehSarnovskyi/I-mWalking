@@ -14,13 +14,15 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {DefaultImageDirective} from "./directives";
 
 
 @NgModule({
   declarations: [
     SettingsPageComponent,
     SettingsMyDataComponent,
-    SettingsMyPostsComponent
+    SettingsMyPostsComponent,
+    DefaultImageDirective
   ],
   imports: [
     NgxsModule.forFeature([SettingsState]),
