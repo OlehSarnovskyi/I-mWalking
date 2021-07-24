@@ -17,6 +17,6 @@ export class SettingsService {
   }
   // TODO any to User type
   getMyData(id: string): Observable<any> {
-    return this.http.get(`/api/my-data/${id}`)
+    return this.http.get(`/api/auth/my-data/${id}`)
   }
 }
