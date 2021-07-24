@@ -60,7 +60,7 @@ module.exports.login = async (req, res) => {
 
 module.exports.myData = async (req, res) => {
     try {
-        const candidate = await User.findOne({email: req.body.email})
+        const candidate = await User.findOne({email: req.params._id})
         res.status(200).json({
             ...candidate
         })

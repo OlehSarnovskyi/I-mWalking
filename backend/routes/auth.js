@@ -7,7 +7,7 @@ const controller = require('../controllers/auth')
 
 router.post('/register', controller.register)
 router.post('/login', controller.login)
-router.get('/my-data', passport.authenticate('jwt', {session: false}), controller.myData)
+router.get('/my-data/:_id', passport.authenticate('jwt', {session: false}), controller.myData)
 
 
 module.exports = router
