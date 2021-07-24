@@ -15,4 +15,8 @@ export class SettingsService {
   deleteMyPost(id: string): Observable<{ message }> {
     return this.http.delete<{ message }>(`/api/posts/delete/${id}`)
   }
+  // TODO any to User type
+  getMyData(id: string): Observable<any> {
+    return this.http.get(`/api/my-data/${id}`)
+  }
 }
