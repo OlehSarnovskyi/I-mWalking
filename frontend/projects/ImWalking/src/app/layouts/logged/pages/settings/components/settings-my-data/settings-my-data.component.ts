@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {filter, take} from "rxjs/operators";
 import {Select} from "@ngxs/store";
@@ -10,6 +10,14 @@ import {SettingsService} from "../../services";
 @Component({
   selector: 'app-settings-my-data',
   templateUrl: './settings-my-data.component.html',
+  styles: [`
+    .avatar-image {
+      height: 100px;
+      width: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsMyDataComponent implements OnInit {
@@ -18,10 +26,12 @@ export class SettingsMyDataComponent implements OnInit {
   token$: Observable<string>
 
   form: FormGroup
+  defaultImage = 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg'
 
   constructor(private fb: FormBuilder,
               private jwtHelper: JwtHelperService,
-              private settingsService: SettingsService) { }
+              private settingsService: SettingsService) {
+  }
 
   ngOnInit(): void {
     this.initForm()
@@ -32,13 +42,15 @@ export class SettingsMyDataComponent implements OnInit {
       take(1)
     ).subscribe(val => {
       const _id = this.jwtHelper.decodeToken(val).userId
-      this.settingsService.getMyData(_id).subscribe(({name, email, telephone}) => {
-        this.form.patchValue({
-          name,
-          email,
-          telephone
+      this.settingsService.getMyData(_id)
+        .subscribe(({name, email, imageSrc, telephone}) => {
+          this.form.patchValue({
+            name,
+            email,
+            imageSrc,
+            telephone
+          })
         })
-      })
     })
   }
 

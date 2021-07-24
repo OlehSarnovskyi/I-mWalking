@@ -6,6 +6,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
   styles: [`
     .container {
       display: flex;
+      justify-content: center;
+      margin-top: 20px;
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
