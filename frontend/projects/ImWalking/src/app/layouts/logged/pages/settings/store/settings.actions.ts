@@ -1,3 +1,5 @@
+import {Settings} from "../models";
+
 export class SearchMyPostsAction {
   static readonly desc = 'search my posts';
   static readonly type = '[SettingsState] SearchMyPostsAction';
@@ -13,13 +15,11 @@ export class DeleteMyPostAction {
 export class GetMyDataAction {
   static readonly desc = 'get my data';
   static readonly type = '[SettingsState] GetMyDataAction';
-  // TODO USER INTERFACE
   constructor(public readonly id: string) {}
 }
 
 export class UpdateMyDataAction {
   static readonly desc = 'update my data';
   static readonly type = '[SettingsState] UpdateMyDataAction';
-  // TODO USER INTERFACE
-  constructor(public readonly body: any) {}
+  constructor(public readonly body: Settings.User) {}
 }
