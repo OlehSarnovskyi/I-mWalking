@@ -1,6 +1,6 @@
 <mat-card>
-  <form [formGroup]="form" ngxsForm="SettingsState.form" (ngSubmit)="submitted.emit()">
-    <div>
+  <form class="my-data__form" [formGroup]="form" ngxsForm="SettingsState.form" (ngSubmit)="submitted.emit()">
+    <div class="my-data__form__image-container">
       <img
         class="avatar-image"
         [src]="form.value.imageSrc"
@@ -32,22 +32,25 @@
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </div>
-    <div>
-      <span>Links:</span>
-      <button type="button" mat-flat-button color="primary" (click)="addContactLink()">Add</button>
+    <div class="my-data__form__links-title">
+      <h2>Links:</h2>
+      <button type="button" mat-button color="primary" (click)="addContactLink()">
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
     <div>
       <div formArrayName="contactLinks">
         <div *ngFor="let _ of contactLinks.controls; let i = index">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="legacy">
               <input matInput
                      [formControlName]="i"
-                     placeholder="Contact link">
+                     placeholder="Contact link {{i + 1}}"
+              >
+              <mat-icon matSuffix (click)="removeContactLink(i)">delete_forever</mat-icon>
             </mat-form-field>
-            <mat-icon (click)="removeContactLink(i)">delete_forever</mat-icon>
         </div>
       </div>
     </div>
-    <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Update</button>
+    <button class="my-data__form__submit-button" type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Update</button>
   </form>
 </mat-card>

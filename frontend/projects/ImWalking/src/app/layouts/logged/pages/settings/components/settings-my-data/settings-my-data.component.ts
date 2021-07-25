@@ -4,7 +4,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnDestroy,
   OnInit,
   Output
 } from '@angular/core';
@@ -18,15 +17,7 @@ import {filter, take} from "rxjs/operators";
 @Component({
   selector: 'app-settings-my-data',
   templateUrl: './settings-my-data.component.html',
-  styles: [`
-    .avatar-image {
-      height: 100px;
-      width: 100px;
-      object-fit: cover;
-      border: 5px solid #3f51b5;
-      border-radius: 50%;
-    }
-  `],
+  styleUrls: ['./settings-my-data.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsMyDataComponent implements OnInit {
