@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {filter, take} from "rxjs/operators";
 import {Select} from "@ngxs/store";
@@ -31,6 +31,7 @@ export class SettingsMyDataComponent implements OnInit {
   _id: string
 
   constructor(private fb: FormBuilder,
+              private cdr: ChangeDetectorRef,
               private jwtHelper: JwtHelperService,
               private settingsService: SettingsService) {
   }
@@ -84,5 +85,16 @@ export class SettingsMyDataComponent implements OnInit {
 
   removeContactLink(ContactLinkIndex: number): void {
     this.contactLinks.removeAt(ContactLinkIndex)
+  }
+
+  addImageToUser({target: {files}}): void {
+    if (files && files.length) {
+      const reader = new FileReader()
+      reader.readAsDataURL(files[0])
+      reader.onload = ({target: {result}}) => {
+        this.form.get('imageSrc').setValue(result)
+        this.cdr.detectChanges()
+      }
+    }
   }
 }
