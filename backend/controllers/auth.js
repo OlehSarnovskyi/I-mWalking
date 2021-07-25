@@ -43,7 +43,7 @@ module.exports.login = async (req, res) => {
             }, keys.jwt, {expiresIn: 60 * 60})
 
             res.status(200).json({
-                token: `Bearer ${token}`,
+                token,
                 message: 'You signed in'
             })
         } else {
@@ -62,6 +62,19 @@ module.exports.myData = async (req, res) => {
     try {
         const candidate = await User.findOne({_id: req.params._id})
         res.status(200).json(candidate._doc)
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}
+
+module.exports.updateMyData = async (req, res) => {
+    try {
+        const user = await User.findOneAndUpdate(
+            {_id: req.body._id},
+            {$set: req.body},
+            {new: true}
+        )
+        res.status(200).json(user)
     } catch (e) {
         errorHandler(res, e)
     }

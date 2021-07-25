@@ -1,5 +1,5 @@
 <mat-card>
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="update()">
     <p>
       <img class="avatar-image" [src]="form.value.imageSrc" appDefaultImage>
     </p>
@@ -29,6 +29,6 @@
     <p>
       // TODO links...
     </p>
-    <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Save</button>
+    <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Update</button>
   </form>
 </mat-card>

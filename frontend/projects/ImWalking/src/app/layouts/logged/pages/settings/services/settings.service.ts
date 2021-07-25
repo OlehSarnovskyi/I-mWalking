@@ -19,4 +19,8 @@ export class SettingsService {
   getMyData(id: string): Observable<any> {
     return this.http.get(`/api/auth/my-data/${id}`)
   }
+
+  updateMyData(body: any): Observable<any> {
+    return this.http.put('/api/auth/my-data/update', body)
+  }
 }

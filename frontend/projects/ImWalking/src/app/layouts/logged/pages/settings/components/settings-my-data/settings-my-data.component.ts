@@ -28,6 +28,8 @@ export class SettingsMyDataComponent implements OnInit {
 
   form: FormGroup
 
+  _id: string
+
   constructor(private fb: FormBuilder,
               private jwtHelper: JwtHelperService,
               private settingsService: SettingsService) {
@@ -41,8 +43,8 @@ export class SettingsMyDataComponent implements OnInit {
       filter(val => !!val),
       take(1)
     ).subscribe(val => {
-      const _id = this.jwtHelper.decodeToken(val).userId
-      this.settingsService.getMyData(_id)
+      this._id = this.jwtHelper.decodeToken(val).userId
+      this.settingsService.getMyData(this._id)
         .subscribe(({name, email, imageSrc, telephone}) => {
           this.form.patchValue({
             name,
@@ -57,10 +59,15 @@ export class SettingsMyDataComponent implements OnInit {
   initForm(): void {
     this.form = this.fb.group({
       name: [null, Validators.required],
-      email: [null, Validators.required, Validators.email],
+      email: [null, [Validators.required, Validators.email]],
       imageSrc: [null, Validators.required],
       telephone: [null, Validators.required],
-      links: [null, Validators.required]
+      contactLinks: [null, Validators.required]
     })
+  }
+
+  update() {
+    // TODO refactor
+    this.settingsService.updateMyData({...this.form.value, _id: this._id}).subscribe()
   }
 }
