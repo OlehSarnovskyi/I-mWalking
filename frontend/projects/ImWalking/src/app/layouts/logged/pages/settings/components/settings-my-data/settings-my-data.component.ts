@@ -1,5 +1,5 @@
-import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {filter, take} from "rxjs/operators";
 import {Select} from "@ngxs/store";
 import {LoginState} from "../../../../../auth";
@@ -35,6 +35,10 @@ export class SettingsMyDataComponent implements OnInit {
               private settingsService: SettingsService) {
   }
 
+  get contactLinks(): FormArray {
+    return this.form.get('contactLinks') as FormArray
+  }
+
   ngOnInit(): void {
     this.initForm()
 
@@ -45,12 +49,13 @@ export class SettingsMyDataComponent implements OnInit {
     ).subscribe(val => {
       this._id = this.jwtHelper.decodeToken(val).userId
       this.settingsService.getMyData(this._id)
-        .subscribe(({name, email, imageSrc, telephone}) => {
+        .subscribe(({contactLinks, ...rest}) => {
+          if (contactLinks && contactLinks.length) {
+            this.addContactLink(contactLinks)
+          }
           this.form.patchValue({
-            name,
-            email,
-            imageSrc,
-            telephone
+            ...rest,
+            contactLinks
           })
         })
     })
@@ -60,14 +65,24 @@ export class SettingsMyDataComponent implements OnInit {
     this.form = this.fb.group({
       name: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
-      imageSrc: [null, Validators.required],
-      telephone: [null, Validators.required],
-      contactLinks: [null, Validators.required]
+      imageSrc: [null],
+      telephone: [null],
+      contactLinks: this.fb.array([])
     })
   }
 
   update() {
     // TODO refactor
     this.settingsService.updateMyData({...this.form.value, _id: this._id}).subscribe()
+  }
+
+  addContactLink(array = [null]): void {
+    array.forEach(str => {
+      this.contactLinks.push(this.fb.control(str, Validators.required))
+    })
+  }
+
+  removeContactLink(ContactLinkIndex: number): void {
+    this.contactLinks.removeAt(ContactLinkIndex)
   }
 }

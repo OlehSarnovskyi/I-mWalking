@@ -1,34 +1,47 @@
 <mat-card>
   <form [formGroup]="form" (ngSubmit)="update()">
-    <p>
+    <div>
       <img class="avatar-image" [src]="form.value.imageSrc" appDefaultImage>
-    </p>
-    <p>
+    </div>
+    <div>
       <mat-form-field appearance="legacy">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Name" formControlName="name">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
-    </p>
-    <p>
+    </div>
+    <div>
       <mat-form-field appearance="legacy">
         <mat-label>Email</mat-label>
         <input matInput type="email" placeholder="Email" formControlName="email">
         <mat-icon matSuffix>email</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
-    </p>
-    <p>
+    </div>
+    <div>
       <mat-form-field appearance="legacy">
         <mat-label>Telephone</mat-label>
         <input matInput type="tel" placeholder="Telephone" formControlName="telephone">
         <mat-icon matSuffix>phone</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
-    </p>
-    <p>
-      // TODO links...
-    </p>
+    </div>
+    <div>
+      <span>Links:</span>
+      <button type="button" mat-flat-button color="primary" (click)="addContactLink()">Add</button>
+    </div>
+    <div>
+      <div formArrayName="contactLinks">
+        <div *ngFor="let _ of contactLinks.controls; let i = index">
+            <mat-form-field appearance="fill">
+              <input matInput
+                     [formControlName]="i"
+                     placeholder="Contact link">
+            </mat-form-field>
+            <mat-icon (click)="removeContactLink(i)">delete_forever</mat-icon>
+        </div>
+      </div>
+    </div>
     <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Update</button>
   </form>
 </mat-card>
