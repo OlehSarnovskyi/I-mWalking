@@ -15,6 +15,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {DefaultImageDirective} from "./directives";
+import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {DefaultImageDirective} from "./directives";
     MatCardModule,
     ReactiveFormsModule,
     MatButtonModule,
+    NgxsFormPluginModule,
   ],
   providers: [SettingsService]
 })

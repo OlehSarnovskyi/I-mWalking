@@ -6,7 +6,7 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 import {Subscription, timer} from "rxjs";
 
 // TODO refactor
-function Unsub(obs$ = []) {
+export function Unsub(obs$ = []) {
   return function(constructor: any) {
     const orig = constructor.prototype.ngOnDestroy
     constructor.prototype.ngOnDestroy = function() {

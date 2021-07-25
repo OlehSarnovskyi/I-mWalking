@@ -1,11 +1,19 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {filter, take} from "rxjs/operators";
-import {Select} from "@ngxs/store";
-import {LoginState} from "../../../../../auth";
+import {Store} from "@ngxs/store";
 import {Observable} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {SettingsService} from "../../services";
+import {Settings} from "../../models";
+import {filter, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-settings-my-data',
@@ -23,17 +31,16 @@ import {SettingsService} from "../../services";
 })
 export class SettingsMyDataComponent implements OnInit {
 
-  @Select(LoginState.token)
-  token$: Observable<string>
+  @Input() myData$: Observable<Settings.User>
+
+  @Output() submitted = new EventEmitter<void>()
 
   form: FormGroup
 
-  _id: string
-
   constructor(private fb: FormBuilder,
-              private cdr: ChangeDetectorRef,
+              private store$: Store,
               private jwtHelper: JwtHelperService,
-              private settingsService: SettingsService) {
+              private cdr: ChangeDetectorRef) {
   }
 
   get contactLinks(): FormArray {
@@ -42,24 +49,6 @@ export class SettingsMyDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm()
-
-    // TODO refactor to state management
-    this.token$.pipe(
-      filter(val => !!val),
-      take(1)
-    ).subscribe(val => {
-      this._id = this.jwtHelper.decodeToken(val).userId
-      this.settingsService.getMyData(this._id)
-        .subscribe(({contactLinks, ...rest}) => {
-          if (contactLinks && contactLinks.length) {
-            this.addContactLink(contactLinks)
-          }
-          this.form.patchValue({
-            ...rest,
-            contactLinks
-          })
-        })
-    })
   }
 
   initForm(): void {
@@ -70,16 +59,23 @@ export class SettingsMyDataComponent implements OnInit {
       telephone: [null],
       contactLinks: this.fb.array([])
     })
-  }
 
-  update() {
-    // TODO refactor
-    this.settingsService.updateMyData({...this.form.value, _id: this._id}).subscribe()
+    this.myData$
+      .pipe(filter(val => !!val), take(1))
+      .subscribe(({contactLinks, ...rest}) => {
+      if (contactLinks && contactLinks.length) {
+        this.addContactLink(contactLinks)
+        this.form.patchValue({
+          ...rest,
+          contactLinks
+        })
+      }
+    })
   }
 
   addContactLink(array = [null]): void {
-    array.forEach(str => {
-      this.contactLinks.push(this.fb.control(str, Validators.required))
+    array.forEach(el => {
+      this.contactLinks.push(this.fb.control(el, Validators.required))
     })
   }
 
@@ -87,7 +83,7 @@ export class SettingsMyDataComponent implements OnInit {
     this.contactLinks.removeAt(ContactLinkIndex)
   }
 
-  addImageToUser({target: {files}}): void {
+  addImageToUser({target: {files}}: any): void {
     if (files && files.length) {
       const reader = new FileReader()
       reader.readAsDataURL(files[0])

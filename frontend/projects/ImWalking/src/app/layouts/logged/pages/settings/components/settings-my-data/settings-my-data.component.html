@@ -1,5 +1,5 @@
 <mat-card>
-  <form [formGroup]="form" (ngSubmit)="update()">
+  <form [formGroup]="form" ngxsForm="SettingsState.form" (ngSubmit)="submitted.emit()">
     <div>
       <img
         class="avatar-image"

@@ -1,4 +1,11 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Select, Store} from "@ngxs/store";
+import {LoginState} from "../../../auth";
+import {Observable} from "rxjs";
+import {filter, switchMap} from "rxjs/operators";
+import {GetMyDataAction, SettingsState, UpdateMyDataAction} from "./store";
+import {JwtHelperService} from "@auth0/angular-jwt";
+import {Settings} from "./models";
 
 @Component({
   selector: 'app-settings-page',
@@ -14,7 +21,24 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 })
 export class SettingsPageComponent implements OnInit {
 
-  constructor() { }
+  @Select(LoginState.token)
+  token$: Observable<string>
 
-  ngOnInit(): void {}
+  @Select(SettingsState.myData)
+  myData$: Observable<Settings.User>
+
+  constructor(private store$: Store,
+              private jwtHelper: JwtHelperService) {}
+
+  ngOnInit(): void {
+    this.token$.pipe(
+      filter(val => !!val),
+      switchMap(val => this.store$.dispatch(new GetMyDataAction(this.jwtHelper.decodeToken(val).userId)))
+    ).subscribe()
+  }
+
+  update(): void {
+    const _id = this.store$.selectSnapshot(SettingsState.myData)._id
+    this.store$.dispatch(new UpdateMyDataAction({...this.store$.selectSnapshot(SettingsState.formValue), _id}))
+  }
 }

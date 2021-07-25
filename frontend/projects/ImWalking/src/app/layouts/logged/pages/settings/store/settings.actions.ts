@@ -9,3 +9,17 @@ export class DeleteMyPostAction {
   static readonly type = '[SettingsState] DeleteMyPostAction';
   constructor(public readonly id: string) {}
 }
+
+export class GetMyDataAction {
+  static readonly desc = 'get my data';
+  static readonly type = '[SettingsState] GetMyDataAction';
+  // TODO USER INTERFACE
+  constructor(public readonly id: string) {}
+}
+
+export class UpdateMyDataAction {
+  static readonly desc = 'update my data';
+  static readonly type = '[SettingsState] UpdateMyDataAction';
+  // TODO USER INTERFACE
+  constructor(public readonly body: any) {}
+}

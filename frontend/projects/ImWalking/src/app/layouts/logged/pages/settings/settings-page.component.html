@@ -1,3 +1,3 @@
 <div class="container">
-  <app-settings-my-data></app-settings-my-data>
+  <app-settings-my-data [myData$]="myData$" (submitted)="update()"></app-settings-my-data>
 </div>
