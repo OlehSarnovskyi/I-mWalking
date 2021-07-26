@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from "@ngxs/store";
-import {CreatePostAction, CreatePostState} from "./store";
+import {CreatePostAction, CrudPostState} from "./store";
 import {LoginState} from "../../../auth";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {DeleteMyPostAction} from "../settings";
@@ -38,7 +38,7 @@ export class CrudPostPageComponent implements OnInit {
       switchMap(() => this.isUpdate ? this.store$.dispatch(new DeleteMyPostAction(_id)) : of(null)),
       switchMap(() => this.store$.dispatch(new CreatePostAction({
         _id,
-        ...this.store$.selectSnapshot(CreatePostState.formValue)
+        ...this.store$.selectSnapshot(CrudPostState.formValue)
       })))
     ).subscribe()
   }

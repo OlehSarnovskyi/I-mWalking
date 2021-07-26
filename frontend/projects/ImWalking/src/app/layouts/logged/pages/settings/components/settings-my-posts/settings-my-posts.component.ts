@@ -49,7 +49,7 @@ export class SettingsMyPostsComponent implements OnInit {
           value: {
             ...this.store$.selectSnapshot(SettingsState.myPosts).list[0]
           },
-          path: 'CreatePostState.form'
+          path: 'CrudPostState.form'
         })
       )
     })
