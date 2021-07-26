@@ -15,12 +15,12 @@ import {Settings} from "../../models";
 import {filter, take} from "rxjs/operators";
 
 @Component({
-  selector: 'app-settings-my-data',
-  templateUrl: './settings-my-data.component.html',
-  styleUrls: ['./settings-my-data.component.scss'],
+  selector: 'app-settings-my-data-form',
+  templateUrl: './settings-my-data-form.component.html',
+  styleUrls: ['./settings-my-data-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SettingsMyDataComponent implements OnInit {
+export class SettingsMyDataFormComponent implements OnInit {
 
   @Input() myData$: Observable<Settings.User>
 

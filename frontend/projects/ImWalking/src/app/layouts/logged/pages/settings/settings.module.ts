@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 
 import {SettingsRoutingModule} from './settings-routing.module';
 import {SettingsPageComponent} from "./settings-page.component";
-import {SettingsMyDataComponent, SettingsMyPostsComponent} from "./components";
+import {SettingsMyDataFormComponent, SettingsMyPostsComponent} from "./components";
 import {LoggedLayoutModule} from "../../logged-layout.module";
 import {CommonModule} from "@angular/common";
 import {NgxsModule} from "@ngxs/store";
@@ -21,7 +21,7 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 @NgModule({
   declarations: [
     SettingsPageComponent,
-    SettingsMyDataComponent,
+    SettingsMyDataFormComponent,
     SettingsMyPostsComponent,
     DefaultImageDirective
   ],
