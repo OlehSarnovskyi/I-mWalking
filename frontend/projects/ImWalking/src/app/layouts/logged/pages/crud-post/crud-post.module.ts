@@ -14,6 +14,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {CommonModule} from "@angular/common";
 import {MatOptionModule} from "@angular/material/core";
 import {PasteEventTrimmerModule} from "paste-event-trimmer";
+import {LoggedLayoutModule} from "../../logged-layout.module";
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import {PasteEventTrimmerModule} from "paste-event-trimmer";
     NgxsModule.forFeature([CrudPostState]),
     NgxsFormPluginModule,
     QuillModule.forRoot(),
-    PasteEventTrimmerModule
+    PasteEventTrimmerModule,
+    // TODO refactor, create module for posts-list component
+    LoggedLayoutModule
   ],
   providers: [CrudPostService]
 })
