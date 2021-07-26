@@ -6,5 +6,6 @@ export const CRUD_POST_DEFAULTS: CrudPost.State = {
     dirty: false,
     status: '',
     errors: {}
-  }
+  },
+  posts: null
 }

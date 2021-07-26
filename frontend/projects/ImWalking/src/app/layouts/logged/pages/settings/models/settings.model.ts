@@ -16,7 +16,6 @@ export namespace Settings {
       status: string
       errors: {}
     }
-    posts: Posts.PostsList
     myData: User
   }
 

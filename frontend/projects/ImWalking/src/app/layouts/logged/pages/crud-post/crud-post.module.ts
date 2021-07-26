@@ -4,7 +4,7 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {NgxsModule} from "@ngxs/store";
 import {CrudPostState} from "./store";
 import {CrudPostService} from "./services";
-import {PostFormComponent} from './components';
+import {CrudMyPostsComponent, PostFormComponent} from './components';
 import {CrudPostRoutingModule} from "./crud-post-routing.module";
 import {QuillModule} from "ngx-quill";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -20,6 +20,7 @@ import {PasteEventTrimmerModule} from "paste-event-trimmer";
   declarations: [
     CrudPostPageComponent,
     PostFormComponent,
+    CrudMyPostsComponent,
   ],
   imports: [
     CrudPostRoutingModule,

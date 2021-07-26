@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Select, Store} from "@ngxs/store";
-import {DeleteMyPostAction, SearchMyPostsAction, SettingsState} from "../../store";
+import {CrudPostState, DeleteMyPostAction, SearchMyPostsAction} from "../../store";
 import {Observable} from "rxjs";
 import {Posts} from "../../../posts";
 import {LoginState} from "../../../../../auth";
@@ -10,16 +10,16 @@ import {Router} from "@angular/router";
 import {UpdateFormValue} from "@ngxs/form-plugin";
 
 @Component({
-  selector: 'app-settings-my-posts',
-  templateUrl: './settings-my-posts.component.html',
+  selector: 'app-crud-my-posts',
+  templateUrl: './crud-my-posts.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SettingsMyPostsComponent implements OnInit {
+export class CrudMyPostsComponent implements OnInit {
 
   @Select(LoginState.token)
   token$: Observable<string>
 
-  @Select(SettingsState.myPosts)
+  @Select(CrudPostState.myPosts)
   myPosts$: Observable<Posts.PostsList>
 
   constructor(
@@ -47,7 +47,7 @@ export class SettingsMyPostsComponent implements OnInit {
       this.store$.dispatch(
         new UpdateFormValue({
           value: {
-            ...this.store$.selectSnapshot(SettingsState.myPosts).list[0]
+            ...this.store$.selectSnapshot(CrudPostState.myPosts).list[0]
           },
           path: 'CrudPostState.form'
         })

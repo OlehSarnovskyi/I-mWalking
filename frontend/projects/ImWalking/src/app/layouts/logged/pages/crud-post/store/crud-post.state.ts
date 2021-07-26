@@ -1,10 +1,12 @@
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {Injectable} from "@angular/core";
-import {CreatePostAction} from "./crud-post.actions";
+import {CreatePostAction, DeleteMyPostAction, SearchMyPostsAction} from "./crud-post.actions";
 import {Observable} from "rxjs";
 import {CrudPost} from "../models";
 import {CRUD_POST_DEFAULTS} from "./crud-post.defaults";
 import {CrudPostService} from "../services";
+import {Posts} from "../../posts";
+import {tap} from "rxjs/operators";
 
 
 @State<CrudPost.State>({
@@ -21,9 +23,34 @@ export class CrudPostState {
     return form.model;
   }
 
+  @Selector()
+  static myPosts({posts}: CrudPost.State): Posts.PostsList {
+    return posts;
+  }
+
+
+  @Action(SearchMyPostsAction)
+  search({patchState}: StateContext<CrudPost.State>, {id}: SearchMyPostsAction): Observable<Posts.PostsList> {
+    return this.crudPostService.getMyPosts(id)
+      .pipe(
+        tap(posts => {
+          patchState({posts})
+        })
+      )
+  }
 
   @Action(CreatePostAction)
   create({patchState}: StateContext<CrudPost.State>, {form}: CreatePostAction): Observable<{ message: string }> {
     return this.crudPostService.create(form)
+  }
+
+  @Action(DeleteMyPostAction)
+  delete({patchState}: StateContext<CrudPost.State>, {id}: DeleteMyPostAction): Observable<{ message }> {
+    return this.crudPostService.deleteMyPost(id)
+      .pipe(
+        tap(() => {
+          patchState({posts: null})
+        })
+      )
   }
 }

@@ -1,9 +1,8 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from "@ngxs/store";
-import {CreatePostAction, CrudPostState} from "./store";
+import {CreatePostAction, CrudPostState, DeleteMyPostAction} from "./store";
 import {LoginState} from "../../../auth";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {DeleteMyPostAction} from "../settings";
 import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {of} from "rxjs";

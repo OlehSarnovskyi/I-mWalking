@@ -1,4 +1,7 @@
+import {Posts} from "../../posts";
+
 export namespace CrudPost {
+
   export interface Form {
     readonly _id: string
     city: string
@@ -14,5 +17,6 @@ export namespace CrudPost {
       status: string
       errors: {}
     }
+    posts: Posts.PostsList
   }
 }
