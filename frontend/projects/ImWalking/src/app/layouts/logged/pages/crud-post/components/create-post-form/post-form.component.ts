@@ -1,11 +1,11 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {filter, switchMap, take} from "rxjs/operators";
 
 @Component({
-  selector: 'app-create-post-form',
-  templateUrl: './create-post-form.component.html',
+  selector: 'app-post-form',
+  templateUrl: './post-form.component.html',
   styles: [`
     form {
       display: flex;
@@ -16,7 +16,7 @@ import {filter, switchMap, take} from "rxjs/operators";
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CreatePostFormComponent implements OnInit {
+export class PostFormComponent implements OnInit {
 
   @Output() submitted = new EventEmitter<void>()
 

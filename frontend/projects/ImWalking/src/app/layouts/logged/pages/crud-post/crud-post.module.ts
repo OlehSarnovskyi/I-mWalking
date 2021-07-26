@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
-import {CreatePostPageComponent} from "./create-post-page.component";
+import {CrudPostPageComponent} from "./crud-post-page.component";
 import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 import {NgxsModule} from "@ngxs/store";
-import {CreatePostState} from "./store";
-import {CreatePostService} from "./services";
-import {CreatePostFormComponent} from './components';
-import {CreatePostRoutingModule} from "./create-post-routing.module";
+import {CrudPostState} from "./store";
+import {CrudPostService} from "./services";
+import {PostFormComponent} from './components';
+import {CrudPostRoutingModule} from "./crud-post-routing.module";
 import {QuillModule} from "ngx-quill";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from '@angular/material/button';
@@ -18,22 +18,22 @@ import {PasteEventTrimmerModule} from "paste-event-trimmer";
 
 @NgModule({
   declarations: [
-    CreatePostPageComponent,
-    CreatePostFormComponent,
+    CrudPostPageComponent,
+    PostFormComponent,
   ],
   imports: [
-    CreatePostRoutingModule,
+    CrudPostRoutingModule,
     CommonModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
-    NgxsModule.forFeature([CreatePostState]),
+    NgxsModule.forFeature([CrudPostState]),
     NgxsFormPluginModule,
     QuillModule.forRoot(),
     PasteEventTrimmerModule
   ],
-  providers: [CreatePostService]
+  providers: [CrudPostService]
 })
-export class CreatePostModule {}
+export class CrudPostModule {}

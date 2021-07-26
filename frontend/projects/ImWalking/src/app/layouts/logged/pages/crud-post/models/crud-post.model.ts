@@ -1,4 +1,4 @@
-export namespace CreatePost {
+export namespace CrudPost {
   export interface Form {
     readonly _id: string
     city: string

@@ -27,6 +27,7 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
   ],
   imports: [
     NgxsModule.forFeature([SettingsState]),
+    NgxsFormPluginModule,
     SettingsRoutingModule,
     LoggedLayoutModule,
     CommonModule,
@@ -36,7 +37,6 @@ import {NgxsFormPluginModule} from "@ngxs/form-plugin";
     MatCardModule,
     ReactiveFormsModule,
     MatButtonModule,
-    NgxsFormPluginModule,
   ],
   providers: [SettingsService]
 })

@@ -10,10 +10,10 @@ import {of} from "rxjs";
 
 @Component({
   selector: 'app-create-post-page',
-  templateUrl: './create-post-page.component.html',
+  templateUrl: './crud-post-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CreatePostPageComponent implements OnInit {
+export class CrudPostPageComponent implements OnInit {
 
   isUpdate = false
 
