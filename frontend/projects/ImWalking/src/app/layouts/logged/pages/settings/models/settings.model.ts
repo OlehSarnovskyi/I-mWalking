@@ -27,5 +27,8 @@ export namespace Settings {
     telephone: string
     contactLinks: string[]
     _id: string
+    posts?: Posts.Post[]
+    password?: string
+    __v?: number
   }
 }
