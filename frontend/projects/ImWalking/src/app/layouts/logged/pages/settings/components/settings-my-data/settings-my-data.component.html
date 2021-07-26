@@ -1,5 +1,11 @@
 <mat-card>
-  <form class="my-data__form" [formGroup]="form" ngxsForm="SettingsState.form" (ngSubmit)="submitted.emit()">
+  <form
+    class="my-data__form"
+    [formGroup]="form"
+    ngxsForm="SettingsState.form"
+    [ngxsFormClearOnDestroy]="true"
+    (ngSubmit)="submitted.emit()"
+  >
     <div class="my-data__form__image-container">
       <img
         class="avatar-image"

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LoggedLayoutComponent} from "./logged-layout.component";
+import {UnsavedFormGuard} from "./guards";
 
 const routes: Routes = [
   {
@@ -8,7 +9,11 @@ const routes: Routes = [
       {path: '', redirectTo: 'posts', pathMatch: 'full'},
       {path: 'posts', loadChildren: () => import('./pages/posts/posts.module').then(m => m.PostsModule)},
       {path: 'create-post', loadChildren: () => import('./pages/create-post/create-post.module').then(m => m.CreatePostModule)},
-      {path: 'settings', loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule)},
+      {
+        path: 'settings',
+        loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule),
+        canDeactivate: [UnsavedFormGuard]
+      },
     ]
   }
 ];

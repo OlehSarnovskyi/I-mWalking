@@ -10,6 +10,7 @@ import {LoggedHeaderComponent, PostsListComponent} from "./components";
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {CommonModule} from "@angular/common";
+import {UnsavedFormGuard} from "./guards";
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {CommonModule} from "@angular/common";
     CommonModule
   ],
   providers: [
+    UnsavedFormGuard,
     {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}
   ],
   exports: [
