@@ -43,7 +43,7 @@ export class SettingsMyPostsComponent implements OnInit {
   }
 
   edit() {
-    this.router.navigate(['view', 'create-post'], {queryParams: {update: true}}).then(() => {
+    this.router.navigate(['view', 'crud-post'], {queryParams: {update: true}}).then(() => {
       this.store$.dispatch(
         new UpdateFormValue({
           value: {

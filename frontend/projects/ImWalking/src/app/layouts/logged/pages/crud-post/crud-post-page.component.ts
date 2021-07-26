@@ -9,7 +9,7 @@ import {switchMap} from "rxjs/operators";
 import {of} from "rxjs";
 
 @Component({
-  selector: 'app-create-post-page',
+  selector: 'app-crud-post-page',
   templateUrl: './crud-post-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
