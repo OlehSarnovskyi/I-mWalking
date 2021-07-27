@@ -11,8 +11,8 @@ import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngxs/store";
 import {Observable} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {Settings} from "../../models";
 import {filter, take} from "rxjs/operators";
+import {LoggedLayout} from "../../../../models";
 
 @Component({
   selector: 'app-settings-my-data-form',
@@ -22,7 +22,7 @@ import {filter, take} from "rxjs/operators";
 })
 export class SettingsMyDataFormComponent implements OnInit {
 
-  @Input() myData$: Observable<Settings.User>
+  @Input() myData$: Observable<LoggedLayout.User>
 
   @Output() submitted = new EventEmitter<void>()
 

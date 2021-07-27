@@ -3,9 +3,10 @@ import {Select, Store} from "@ngxs/store";
 import {LoginState} from "../../../auth";
 import {Observable} from "rxjs";
 import {filter, switchMap} from "rxjs/operators";
-import {GetMyDataAction, SettingsState, UpdateMyDataAction} from "./store";
+import {SettingsState, UpdateMyDataAction} from "./store";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {Settings} from "./models";
+import {LoggedLayout} from "../../models";
+import {GetMyDataAction, LoggedLayoutState} from "../../store";
 
 @Component({
   selector: 'app-settings-page',
@@ -24,8 +25,8 @@ export class SettingsPageComponent implements OnInit {
   @Select(LoginState.token)
   token$: Observable<string>
 
-  @Select(SettingsState.myData)
-  myData$: Observable<Settings.User>
+  @Select(LoggedLayoutState.myData)
+  myData$: Observable<LoggedLayout.User>
 
   constructor(private store$: Store,
               private jwtHelper: JwtHelperService) {}
@@ -38,7 +39,7 @@ export class SettingsPageComponent implements OnInit {
   }
 
   update(): void {
-    const _id = this.store$.selectSnapshot(SettingsState.myData)._id
+    const { _id } = this.store$.selectSnapshot(LoggedLayoutState.myData)
     this.store$.dispatch(new UpdateMyDataAction({...this.store$.selectSnapshot(SettingsState.formValue), _id}))
   }
 }

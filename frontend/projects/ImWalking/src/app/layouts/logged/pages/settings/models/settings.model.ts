@@ -1,4 +1,4 @@
-import {Posts} from "../../posts";
+import {LoggedLayout} from "../../../models";
 
 export namespace Settings {
   export interface Form {
@@ -16,18 +16,7 @@ export namespace Settings {
       status: string
       errors: {}
     }
-    myData: User
-  }
-
-  export interface User {
-    name: string
-    email: string
-    imageSrc: string
-    telephone: string
-    contactLinks: string[]
-    _id: string
-    posts?: Posts.Post[]
-    password?: string
-    __v?: number
+    // TODO THINK
+    myData: LoggedLayout.User
   }
 }

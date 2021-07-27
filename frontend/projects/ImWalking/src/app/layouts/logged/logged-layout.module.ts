@@ -11,6 +11,9 @@ import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {CommonModule} from "@angular/common";
 import {UnsavedFormGuard} from "./guards";
+import {LoggedLayoutService} from "./services";
+import {NgxsModule} from "@ngxs/store";
+import {LoggedLayoutState} from "./store";
 
 
 @NgModule({
@@ -20,6 +23,7 @@ import {UnsavedFormGuard} from "./guards";
     PostsListComponent
   ],
   imports: [
+    NgxsModule.forFeature([LoggedLayoutState]),
     LoggedLayoutRoutingModule,
     MatIconModule,
     MatToolbarModule,
@@ -30,6 +34,7 @@ import {UnsavedFormGuard} from "./guards";
   ],
   providers: [
     UnsavedFormGuard,
+    LoggedLayoutService,
     {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}
   ],
   exports: [

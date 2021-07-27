@@ -5,6 +5,7 @@ import {Store} from "@ngxs/store"
 import {SettingsState} from '../pages/settings/store'
 import {UpdateFormValue} from "@ngxs/form-plugin";
 import {take} from "rxjs/operators";
+import {LoggedLayoutState} from "../store";
 
 @Injectable()
 export class UnsavedFormGuard implements CanDeactivate<any> {
@@ -17,7 +18,7 @@ export class UnsavedFormGuard implements CanDeactivate<any> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    const {_id, __v, posts, password, ...myRestData} = this.store$.selectSnapshot(SettingsState.myData)
+    const {_id, __v, posts, password, ...myRestData} = this.store$.selectSnapshot(LoggedLayoutState.myData)
 
     const result = this.deepEqual(this.store$.selectSnapshot(SettingsState.formValue), myRestData)
 
