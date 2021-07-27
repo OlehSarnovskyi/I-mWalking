@@ -2,7 +2,6 @@
 <!--TODO refactor ngIf-->
 <app-posts-list
   *ngIf="(myPosts$ | async)?.list.length && !isUpdate"
-  [actions]="['edit', 'delete']"
   [posts]="myPosts$ | async"
   (actionEmitter)="callAction($event)"
 ></app-posts-list>
