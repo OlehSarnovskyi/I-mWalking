@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Settings} from "../models";
 
 @Injectable()
 export class SettingsService {
 
   constructor(private http: HttpClient) {}
 
-  // TODO any to User type
-  getMyData(id: string): Observable<any> {
-    return this.http.get(`/api/auth/my-data/${id}`)
+  getMyData(id: string): Observable<Settings.User> {
+    return this.http.get<Settings.User>(`/api/auth/my-data/${id}`)
   }
 
   updateMyData(body: any): Observable<any> {
