@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -19,9 +19,9 @@ export class PostFormComponent implements OnInit {
   @Output() submitted = new EventEmitter<void>()
 
   form: FormGroup
-  imageSrc: string
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+              private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.initForm()
@@ -46,8 +46,9 @@ export class PostFormComponent implements OnInit {
     if (event.target.files && event.target.files.length) {
       const reader = new FileReader()
       reader.readAsDataURL(event.target.files[0])
-      reader.onload = () => {
-        this.form.get('imageSrc').setValue(this.imageSrc)
+      reader.onload = (e) => {
+        this.form.get('imageSrc').setValue(e.target.result)
+        this.cdr.detectChanges();
       }
     }
   }

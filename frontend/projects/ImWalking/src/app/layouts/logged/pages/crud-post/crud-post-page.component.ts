@@ -3,7 +3,6 @@ import {Select, Store} from "@ngxs/store";
 import {CreatePostAction, CrudPostState, DeleteMyPostAction, SearchMyPostsAction} from "./store";
 import {LoginState} from "../../../auth";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {ActivatedRoute} from "@angular/router";
 import {filter, switchMap, take} from "rxjs/operators";
 import {Observable, of} from "rxjs";
 import {Posts} from "../posts";
@@ -25,15 +24,9 @@ export class CrudPostPageComponent implements OnInit {
   isUpdate = false
 
   constructor(private store$: Store,
-              private jwtHelper: JwtHelperService,
-              private activatedRoute: ActivatedRoute
-  ) {}
+              private jwtHelper: JwtHelperService) {}
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(val => {
-      this.isUpdate = !!val.update === true
-    })
-
     this.token$.pipe(
       filter(val => !!val),
       take(1)
@@ -72,6 +65,7 @@ export class CrudPostPageComponent implements OnInit {
         path: 'CrudPostState.form'
       })
     )
+    this.isUpdate = true
   }
 
   delete() {

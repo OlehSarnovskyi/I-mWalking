@@ -1,7 +1,10 @@
-<app-post-form (submitted)="create()"></app-post-form>
+<ng-container *ngIf="myPosts$ | async as myPosts">
+  <app-post-form (submitted)="create()" *ngIf="!myPosts?.list.length"></app-post-form>
 
-<app-posts-list
-  [actions]="['edit', 'delete']"
-  [posts]="myPosts$ | async"
-  (actionEmitter)="callAction($event)"
-></app-posts-list>
+  <app-posts-list
+    *ngIf="myPosts"
+    [actions]="['edit', 'delete']"
+    [posts]="myPosts"
+    (actionEmitter)="callAction($event)"
+  ></app-posts-list>
+</ng-container>
