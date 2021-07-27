@@ -1,11 +1,13 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Store} from "@ngxs/store";
-import {CreatePostAction, CrudPostState, DeleteMyPostAction} from "./store";
+import {Select, Store} from "@ngxs/store";
+import {CreatePostAction, CrudPostState, DeleteMyPostAction, SearchMyPostsAction} from "./store";
 import {LoginState} from "../../../auth";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {ActivatedRoute} from "@angular/router";
-import {switchMap} from "rxjs/operators";
-import {of} from "rxjs";
+import {filter, switchMap, take} from "rxjs/operators";
+import {Observable, of} from "rxjs";
+import {Posts} from "../posts";
+import {UpdateFormValue} from "@ngxs/form-plugin";
 
 @Component({
   selector: 'app-crud-post-page',
@@ -13,6 +15,12 @@ import {of} from "rxjs";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CrudPostPageComponent implements OnInit {
+
+  @Select(LoginState.token)
+  token$: Observable<string>
+
+  @Select(CrudPostState.myPosts)
+  myPosts$: Observable<Posts.PostsList>
 
   isUpdate = false
 
@@ -24,6 +32,14 @@ export class CrudPostPageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(val => {
       this.isUpdate = !!val.update === true
+    })
+
+    this.token$.pipe(
+      filter(val => !!val),
+      take(1)
+    ).subscribe(val => {
+      const _id = this.jwtHelper.decodeToken(val).userId
+      this.store$.dispatch(new SearchMyPostsAction(_id))
     })
   }
 
@@ -40,5 +56,26 @@ export class CrudPostPageComponent implements OnInit {
         ...this.store$.selectSnapshot(CrudPostState.formValue)
       })))
     ).subscribe()
+  }
+
+
+  callAction(action: Posts.Action) {
+    this[action]()
+  }
+
+  edit() {
+    this.store$.dispatch(
+      new UpdateFormValue({
+        value: {
+          ...this.store$.selectSnapshot(CrudPostState.myPosts).list[0]
+        },
+        path: 'CrudPostState.form'
+      })
+    )
+  }
+
+  delete() {
+    const _id = this.jwtHelper.decodeToken(this.store$.selectSnapshot(LoginState.token)).userId
+    this.store$.dispatch(new DeleteMyPostAction(_id))
   }
 }

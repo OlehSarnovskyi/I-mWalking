@@ -1,7 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
-import {filter, switchMap, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-post-form',
@@ -23,7 +21,7 @@ export class PostFormComponent implements OnInit {
   form: FormGroup
   imageSrc: string
 
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.initForm()
@@ -42,22 +40,13 @@ export class PostFormComponent implements OnInit {
     // this.form.get('description').valueChanges.subscribe(val => {
     //   this.changeDetectorRef.detectChanges()
     // })
-    this.form.valueChanges
-      .pipe(
-        switchMap(() => this.activatedRoute.queryParams),
-        take(1),
-        filter(({update}) => !!update))
-      .subscribe(() => {
-        this.imageSrc = this.form.value.imageSrc
-    })
   }
 
   onFileChanged(event) {
     if (event.target.files && event.target.files.length) {
       const reader = new FileReader()
       reader.readAsDataURL(event.target.files[0])
-      reader.onload = (event) => {
-        this.imageSrc = event.target.result as string
+      reader.onload = () => {
         this.form.get('imageSrc').setValue(this.imageSrc)
       }
     }
