@@ -19,14 +19,12 @@ export class LoggedLayoutState {
 
   @Selector()
   static myData({myData}: LoggedLayout.State): LoggedLayout.User {
-    return myData;
+    return myData
   }
 
   @Selector()
-  static filledTelephoneAndContactLinks({myData}: LoggedLayout.State): boolean {
-    //TODO CHECK filledTelephoneAndContactLinks!!!!!
-    console.log(3333333, myData);
-    return !!myData;
+  static filledTelephoneAndContactLinks({myData: {telephone, contactLinks}}: LoggedLayout.State): boolean {
+    return !!(telephone && contactLinks.length)
   }
 
 
