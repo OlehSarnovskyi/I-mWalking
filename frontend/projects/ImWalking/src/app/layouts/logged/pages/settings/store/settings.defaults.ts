@@ -7,5 +7,4 @@ export const SETTINGS_DEFAULTS: Settings.State = {
     status: '',
     errors: {}
   },
-  myData: null,
 }

@@ -1,5 +1,3 @@
-import {LoggedLayout} from "../../../models";
-
 export namespace Settings {
   export interface Form {
     name: string
@@ -16,7 +14,5 @@ export namespace Settings {
       status: string
       errors: {}
     }
-    // TODO THINK
-    myData: LoggedLayout.User
   }
 }
