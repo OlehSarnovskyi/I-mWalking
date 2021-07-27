@@ -1,10 +1,8 @@
-<ng-container *ngIf="myPosts$ | async as myPosts">
-  <app-post-form (submitted)="create()" *ngIf="!myPosts?.list.length"></app-post-form>
-
-  <app-posts-list
-    *ngIf="myPosts"
-    [actions]="['edit', 'delete']"
-    [posts]="myPosts"
-    (actionEmitter)="callAction($event)"
-  ></app-posts-list>
-</ng-container>
+<app-post-form (submitted)="create()" *ngIf="!(myPosts$ | async)?.list.length || isUpdate"></app-post-form>
+<!--TODO refactor ngIf-->
+<app-posts-list
+  *ngIf="(myPosts$ | async)?.list.length && !isUpdate"
+  [actions]="['edit', 'delete']"
+  [posts]="myPosts$ | async"
+  (actionEmitter)="callAction($event)"
+></app-posts-list>

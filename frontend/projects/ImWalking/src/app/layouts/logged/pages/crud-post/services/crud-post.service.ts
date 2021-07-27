@@ -13,9 +13,10 @@ export class CrudPostService {
     return this.http.get<Posts.PostsList>(`/api/posts/getMy/${id}`)
   }
 
-  create(body: CrudPost.Form): Observable<{ message: string }> {
-    return this.http.post<{ message: string }>('/api/posts/create', body)
+  create(body: CrudPost.Form): Observable<Posts.Post> {
+    return this.http.post<Posts.Post>('/api/posts/create', body)
   }
+
   deleteMyPost(id: string): Observable<{ message }> {
     return this.http.delete<{ message }>(`/api/posts/delete/${id}`)
   }

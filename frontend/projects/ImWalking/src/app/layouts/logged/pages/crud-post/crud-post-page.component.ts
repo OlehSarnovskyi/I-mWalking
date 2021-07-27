@@ -6,7 +6,7 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 import {filter, switchMap, take} from "rxjs/operators";
 import {Observable, of} from "rxjs";
 import {Posts} from "../posts";
-import {UpdateFormValue} from "@ngxs/form-plugin";
+import {ResetForm, UpdateFormValue} from "@ngxs/form-plugin";
 
 @Component({
   selector: 'app-crud-post-page',
@@ -21,6 +21,7 @@ export class CrudPostPageComponent implements OnInit {
   @Select(CrudPostState.myPosts)
   myPosts$: Observable<Posts.PostsList>
 
+  // TODO refactor isUpdate
   isUpdate = false
 
   constructor(private store$: Store,
@@ -48,7 +49,10 @@ export class CrudPostPageComponent implements OnInit {
         _id,
         ...this.store$.selectSnapshot(CrudPostState.formValue)
       })))
-    ).subscribe()
+    ).subscribe(() => {
+      this.store$.dispatch(new ResetForm({path: 'CrudPostState.form'}))
+      this.isUpdate = false
+    })
   }
 
 

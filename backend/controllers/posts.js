@@ -43,9 +43,7 @@ module.exports.create = async (req, res) => {
         })
         try {
             await post.save()
-            res.status(201).json({
-                message: 'You created a new post'
-            })
+            res.status(201).json(post)
         } catch (e) {
             errorHandler(res, e)
         }

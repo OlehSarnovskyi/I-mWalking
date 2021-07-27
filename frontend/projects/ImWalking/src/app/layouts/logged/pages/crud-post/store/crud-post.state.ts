@@ -40,8 +40,18 @@ export class CrudPostState {
   }
 
   @Action(CreatePostAction)
-  create({patchState}: StateContext<CrudPost.State>, {form}: CreatePostAction): Observable<{ message: string }> {
+  create({patchState, getState}: StateContext<CrudPost.State>, {form}: CreatePostAction): Observable<Posts.Post> {
+    const state = getState()
     return this.crudPostService.create(form)
+      .pipe(
+        tap((post) => {
+          patchState({
+            posts: {
+              list: [...(state.posts ? state.posts.list : []), post]
+            }
+          })
+        })
+      )
   }
 
   @Action(DeleteMyPostAction)
