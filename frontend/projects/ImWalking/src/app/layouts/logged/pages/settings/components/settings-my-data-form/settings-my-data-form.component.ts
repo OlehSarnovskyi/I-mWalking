@@ -54,14 +54,14 @@ export class SettingsMyDataFormComponent implements OnInit {
     this.myData$
       .pipe(filter(val => !!val), take(1))
       .subscribe(({contactLinks, ...rest}) => {
-      if (contactLinks && contactLinks.length) {
-        this.addContactLink(contactLinks)
+        if (contactLinks && contactLinks.length) {
+          this.addContactLink(contactLinks)
+        }
         this.form.patchValue({
           ...rest,
           contactLinks
         })
-      }
-    })
+      })
   }
 
   addContactLink(array = [null]): void {
